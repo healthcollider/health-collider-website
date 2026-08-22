@@ -214,6 +214,14 @@ strong { font-weight: 600; }
 .footer-cols { display: flex; gap: 64px; flex-wrap: wrap; }
 .footer-bottom { padding-top: 22px; font-size: 13px; color: #7f93b8; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 
+/* ---------- "how we move the needle" list (stacked, not a card grid) ---------- */
+.moves { max-width: 820px; }
+.move { display: grid; grid-template-columns: 40px 1fr; gap: 20px; padding: 24px 0; border-top: 1px solid var(--soft); }
+.move:last-child { border-bottom: 1px solid var(--soft); }
+.move .mn { font-family: var(--display); font-weight: 800; font-size: 26px; color: var(--accent); line-height: 1; }
+.move h3 { font-size: 20px; margin-bottom: 6px; }
+.move p { color: var(--muted); font-size: 16px; }
+
 /* ---------- FAQ (objection handling; mirrors the FAQPage schema) ---------- */
 .faq { max-width: 760px; }
 .faq-item { border-top: 1px solid var(--soft); padding: 22px 0; }
