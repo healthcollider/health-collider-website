@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option B · Modern-minimal — Health Collider</title>
+<style>
+/* Hallmark · macrostructure: Workbench (modern-minimal) · nav: N9 Edge-aligned · footer: Ft4 Colophon
+ * theme: HC brand (cream paper · navy ink · warm accent) · genre: modern-minimal
+ * audience: health-tech founders/CEOs · use: book intro call · tone: systematic / confident
+ * pre-emit critique: P5 H5 E5 S5 R4 V5 */
+@font-face { font-family:"Playfair Display"; font-weight:800; font-display:swap; src:url("/assets/fonts/playfair-display-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family:"Poppins"; font-weight:400; font-display:swap; src:url("/assets/fonts/poppins-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family:"Poppins"; font-weight:500; font-display:swap; src:url("/assets/fonts/poppins-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family:"Poppins"; font-weight:600; font-display:swap; src:url("/assets/fonts/poppins-latin-600-normal.woff2") format("woff2"); }
+:root{
+  --cream:#FAF7F3; --navy:#0D1B34; --steel:#3E5C84; --soft:#EEF1F7; --muted:#5b6472;
+  --accent:#C93B14; --line:#e2ddd4; --green:#1E9E6A;
+  --display:"Playfair Display",Georgia,serif; --sans:"Poppins",-apple-system,sans-serif;
+  color-scheme:only light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--cream);color:var(--navy);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:1140px;margin:0 auto;padding:0 32px}
+a{color:var(--navy)}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-0.015em;line-height:1.08}
+
+/* N9 edge-aligned nav: wordmark hard-left, links hard-right, no border/sticky chrome */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:26px 32px;max-width:1140px;margin:0 auto}
+.nav .brand{font-weight:600;font-size:17px;letter-spacing:-0.01em}
+.nav .brand b{color:var(--accent)}
+.nav .links{display:flex;gap:32px;align-items:center;font-size:15px}
+.nav .links a{text-decoration:none;color:var(--navy);font-weight:500}
+.nav .links a:hover{color:var(--accent)}
+.nav .links .go{color:var(--accent);font-weight:600}
+
+/* asymmetric split hero */
+.hero{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;padding:64px 0 80px}
+.hero .tag{font-size:13px;font-weight:600;letter-spacing:0.02em;color:var(--steel);margin-bottom:18px}
+.hero .tag::before{content:"";display:inline-block;width:26px;height:2px;background:var(--accent);vertical-align:middle;margin-right:10px}
+.hero h1{font-size:clamp(40px,5vw,60px)}
+.hero p{color:var(--muted);font-size:19px;max-width:42ch;margin:22px 0 30px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;text-decoration:none;font-weight:600;font-size:15px;padding:13px 24px;border-radius:9px}
+.btn-p{background:var(--accent);color:#fff}.btn-p:hover{background:#b0330f}
+.btn-o{border:1.5px solid var(--navy);color:var(--navy)}.btn-o:hover{background:var(--navy);color:#fff}
+
+/* the seven-domain assessment AS the hero visual (hand-built, no invented data) */
+.assess{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 20px 50px rgba(13,27,52,0.09)}
+.assess .head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+.assess .head .t{font-family:var(--display);font-weight:800;font-size:17px}
+.assess .head .s{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--steel)}
+.assess .row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-top:1px solid var(--soft);font-size:13.5px}
+.assess .row span{color:var(--navy)}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.d-g{background:var(--green)}.d-a{background:#E0A83E}.d-r{background:var(--accent)}
+.assess .foot{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+
+/* proof line */
+.proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.proof .container{display:flex;gap:16px 44px;flex-wrap:wrap;padding:18px 32px;font-size:13px;font-weight:500;letter-spacing:0.03em;text-transform:uppercase;color:var(--steel)}
+
+/* services — asymmetric: one wide + two stacked */
+.svc{padding:84px 0}
+.svc .lede{max-width:52ch;margin-bottom:36px}
+.svc .lede h2{font-size:clamp(28px,3.4vw,40px)}
+.svc .lede p{color:var(--muted);margin-top:12px;font-size:18px}
+.grid{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;gap:18px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px}
+.tile.big{grid-row:span 2;display:flex;flex-direction:column}
+.tile .k{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.tile h3{font-size:22px;margin-bottom:8px}
+.tile p{color:var(--muted);font-size:15px}
+.tile.big .doms{margin-top:auto;padding-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile.big .doms div{font-size:12.5px;color:var(--navy);padding:7px 10px;background:var(--soft);border-radius:7px}
+.tile a{margin-top:14px;display:inline-block;color:var(--accent);font-weight:600;font-size:14px;text-decoration:none}
+
+/* positioning band */
+.band{background:var(--navy);color:#fff}
+.band .container{padding:76px 32px}
+.band .tag{color:#7f93b8;font-size:13px;font-weight:600;letter-spacing:0.02em;margin-bottom:16px}
+.band h2{color:#fff;font-size:clamp(28px,3.6vw,42px);max-width:20ch}
+.band p{color:#a9b6ce;font-size:18px;max-width:56ch;margin-top:18px}
+
+/* founders row — asymmetric left-aligned */
+.team{padding:84px 0}
+.team h2{font-size:clamp(26px,3vw,36px);max-width:24ch;margin-bottom:34px}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.person{background:var(--cream);padding:24px}
+.person .nm{font-family:var(--display);font-weight:800;font-size:19px}
+.person .rl{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin:4px 0 10px}
+.person p{font-size:14px;color:var(--muted);line-height:1.55}
+
+/* Ft4 colophon */
+.colophon{border-top:2px solid var(--navy);margin-top:20px}
+.colophon .container{padding:40px 32px 30px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end}
+.colophon .lead{max-width:38ch}
+.colophon .lead .bg{font-family:var(--display);font-weight:800;font-size:22px}
+.colophon .lead p{color:var(--muted);font-size:14px;margin-top:6px}
+.colophon .meta{font-size:13px;color:var(--steel);text-align:right;line-height:1.9}
+.colophon .meta a{color:var(--navy);text-decoration:none;font-weight:500}
+
+@media(max-width:820px){.hero{grid-template-columns:1fr;gap:40px}.grid{grid-template-columns:1fr}.tile.big{grid-row:auto}.people{grid-template-columns:1fr}.colophon .container{flex-direction:column;align-items:flex-start}.colophon .meta{text-align:left}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">Health<b>&middot;</b>Collider</div>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#team">Team</a>
+      <a class="go" href="#talk">Book a call &rarr;</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="container hero">
+    <div>
+      <div class="tag">NHS market access consultancy</div>
+      <h1>Turn a real product into NHS market share.</h1>
+      <p>Practising NHS clinicians who get health-tech into the NHS - and make it scale. Entry, adoption, procurement, and the positioning that clears the way.</p>
+      <div class="cta-row"><a class="btn btn-p" href="#talk">Book an intro call</a><a class="btn btn-o" href="#services">See the method</a></div>
+    </div>
+    <div class="assess" role="img" aria-label="The seven-domain market access readiness assessment">
+      <div class="head"><span class="t">Market Access Readiness</span><span class="s">7 domains</span></div>
+      <div class="row"><span>Clinical relevance</span><span class="dot d-g"></span></div>
+      <div class="row"><span>Product &amp; user experience</span><span class="dot d-g"></span></div>
+      <div class="row"><span>Technical architecture</span><span class="dot d-a"></span></div>
+      <div class="row"><span>Regulatory &amp; compliance</span><span class="dot d-g"></span></div>
+      <div class="row"><span>Commercial viability</span><span class="dot d-a"></span></div>
+      <div class="row"><span>Market positioning</span><span class="dot d-r"></span></div>
+      <div class="row"><span>Adoption &amp; implementation</span><span class="dot d-a"></span></div>
+      <div class="foot">Every engagement produces a traffic-light report and a prioritised roadmap. Illustrative.</div>
+    </div>
+  </section>
+
+  <div class="proof">
+    <div class="container">
+      <span>Founded &amp; run by practising NHS clinicians</span>
+      <span>NICE committee experience</span>
+      <span>800+ clinician community</span>
+    </div>
+  </div>
+
+  <section id="services" class="svc">
+    <div class="container">
+      <div class="lede">
+        <h2>A method, not just advice.</h2>
+        <p>Three ways in - from a single expert session to an independent, end-to-end readiness assessment. Every engagement is scoped on the call; flexible structures exist for pre-revenue companies.</p>
+      </div>
+      <div class="grid">
+        <div class="tile big">
+          <div class="k">Market Access Project</div>
+          <h3>Independent readiness assessment</h3>
+          <p>A structured view of whether your product is ready for the UK market - what blocks NHS adoption, what accelerates it, and in what order.</p>
+          <div class="doms"><div>Clinical relevance</div><div>Product &amp; UX</div><div>Technical architecture</div><div>Regulatory</div><div>Commercial viability</div><div>Positioning</div><div>Adoption</div><div>Traffic-light report</div></div>
+          <a href="#talk">Assess your readiness &rarr;</a>
+        </div>
+        <div class="tile">
+          <div class="k">Consultancy</div>
+          <h3>A focused expert session</h3>
+          <p>One defined challenge, a named specialist, a written plan within five working days.</p>
+          <a href="#talk">Start with a session &rarr;</a>
+        </div>
+        <div class="tile">
+          <div class="k">Advisory retainer</div>
+          <h3>The team, ongoing</h3>
+          <p>Continuous clinical, commercial, and regulatory expertise as you enter and scale.</p>
+          <a href="#talk">Work with us monthly &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container">
+      <div class="tag">How we win adoption</div>
+      <h2>The NHS adopts by evolution, not revolution.</h2>
+      <p>Disruptive products stall on "who are you to tell us?". We reframe them so buyers feel they self-selected best practice - proven across GP triage, hospital service lines, and CQC tooling. That reframe is usually worth more than any change to the product itself.</p>
+    </div>
+  </section>
+
+  <section id="team" class="team">
+    <div class="container">
+      <h2>The advice is lived, not theoretical.</h2>
+      <div class="people">
+        <div class="person"><div class="nm">Dr Junaid Hussain</div><div class="rl">CEO</div><p>Strategy, partnerships, and market positioning across the UK and Middle East. Runs an 800+ clinician community.</p></div>
+        <div class="person"><div class="nm">Dr Valeed Ghafoor</div><div class="rl">COO</div><p>Commercial strategy, NHS procurement, and primary-care pathway development. NICE committee member.</p></div>
+        <div class="person"><div class="nm">Dr Aaron Smith</div><div class="rl">CTO</div><p>Product assessment, medical-device regulation, compliance, and quality management systems.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="talk" class="colophon">
+    <div class="container">
+      <div class="lead">
+        <div class="bg">Bringing a product into the NHS?</div>
+        <p>Talk to a clinician who sells into it. 30 minutes, response within two working days.</p>
+        <a class="btn btn-p" href="mailto:contact@healthcollider.com" style="margin-top:16px">Book an intro call</a>
+      </div>
+      <div class="meta">
+        <a href="mailto:contact@healthcollider.com">contact@healthcollider.com</a><br>
+        <a href="#services">Services</a> &middot; <a href="#team">Team</a><br>
+        Health Collider &middot; Accelerating healthcare<br>innovation into practice
+      </div>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>

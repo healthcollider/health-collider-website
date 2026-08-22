@@ -37,6 +37,10 @@
   }
 }
 </script>
+
+<!-- Marks that JS is available before first paint, so main.css can collapse the
+     mobile nav into a drawer. Without it the nav stays a plain stacked list. -->
+<script>document.documentElement.className+=" js";</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -108,7 +112,7 @@
               <textarea id="f-blocker" name="current_blocker" placeholder="e.g. we have a pilot but it isn't converting to a contract"></textarea>
             </div>
             <button class="btn btn-primary" type="submit">Request a call</button>
-            <p class="expectation">We respond within 2 working days. Prefer email? <a href="mailto:contact@healthcollider.com">contact@healthcollider.com</a></p>
+            <p class="expectation">We'll never share your details, and we won't add you to anything you didn't ask for. We respond within 2 working days. Prefer email? <a href="mailto:contact@healthcollider.com">contact@healthcollider.com</a></p>
           </form>
         </div>
 

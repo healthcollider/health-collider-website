@@ -39,6 +39,10 @@
   ]
 }
 </script>
+
+<!-- Marks that JS is available before first paint, so main.css can collapse the
+     mobile nav into a drawer. Without it the nav stays a plain stacked list. -->
+<script>document.documentElement.className+=" js";</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -62,7 +66,7 @@
     <div class="container">
       <span class="eyebrow">About</span>
       <h1>Accelerating healthcare innovation into practice.</h1>
-      <p class="lead">Health Collider is a bespoke health-tech consultancy founded and run by practising NHS clinicians. We help health-technology companies win market access and market share in the UK NHS.</p>
+      <p class="lead">Health Collider is a health-tech consultancy founded and run by practising NHS clinicians. We help health-tech companies win market access and market share in the UK NHS.</p>
     </div>
   </section>
 
@@ -71,7 +75,7 @@
       <div class="section-head">
         <span class="eyebrow">Why clients choose us</span>
         <h2>The advice is lived, not theoretical.</h2>
-        <p>We are practising NHS clinicians who have built and scaled health businesses ourselves. The outcome we deliver is market access - increased NHS market share - and we win it the way the NHS actually adopts: by evolution, not revolution. We reframe disruptive products so buyers feel they self-selected best practice, which removes the "who are you to tell us?" barrier.</p>
+        <p>We're practising NHS clinicians who've built and scaled health businesses ourselves. The outcome we deliver is market access - increased NHS market share - and we win it the way the NHS actually adopts: by evolution, not revolution. We reframe disruptive products so buyers feel they self-selected best practice, which removes the &ldquo;who are you to tell us?&rdquo; barrier.</p>
       </div>
     </div>
   </section>
@@ -109,7 +113,7 @@
     <div class="container">
       <span class="eyebrow">The community</span>
       <h2>Backed by 800+ clinicians.</h2>
-      <p>Beyond the core team, we draw on a community of more than 800 clinicians for real-world adoption, case studies, and data. It is how we pressure-test a product against the people who will actually use it - and how new tools find their first advocates inside the NHS.</p>
+      <p>Beyond the core team, we draw on a community of more than 800 clinicians for real-world adoption, case studies, and data. It's how we pressure-test a product against the people who'll actually use it, and how new tools win their first NHS advocates.</p>
       <div class="cta-row" style="margin-top:28px">
         <a class="btn btn-on-dark" href="/contact/">Clinicians: join the community</a>
       </div>

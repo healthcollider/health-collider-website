@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option C · Manifesto — Health Collider</title>
+<style>
+/* Hallmark · macrostructure: Manifesto · nav: N2 Floating chip · footer: Ft5 Statement
+ * theme: HC brand (navy paper · cream ink · warm accent) · genre: editorial/manifesto
+ * audience: health-tech founders/CEOs · use: book intro call · tone: opinionated POV
+ * pre-emit critique: P5 H5 E4 S5 R5 V5 */
+@font-face { font-family:"Playfair Display"; font-weight:800; font-display:swap; src:url("/assets/fonts/playfair-display-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family:"Poppins"; font-weight:400; font-display:swap; src:url("/assets/fonts/poppins-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family:"Poppins"; font-weight:500; font-display:swap; src:url("/assets/fonts/poppins-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family:"Poppins"; font-weight:600; font-display:swap; src:url("/assets/fonts/poppins-latin-600-normal.woff2") format("woff2"); }
+:root{
+  --cream:#FAF7F3; --navy:#0D1B34; --steel:#8ba0c4; --muted:#a9b6ce;
+  --accent:#E8431C; --ink:#0D1B34;
+  --display:"Playfair Display",Georgia,serif; --sans:"Poppins",-apple-system,sans-serif;
+  color-scheme:only light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--navy);color:var(--cream);font-family:var(--sans);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:1080px;margin:0 auto;padding:0 34px}
+
+/* N2 floating chip nav */
+.chip{position:sticky;top:20px;z-index:20;margin:20px auto 0;max-width:1080px;padding:0 34px}
+.chip .bar{display:flex;align-items:center;justify-content:space-between;background:rgba(250,247,243,0.07);backdrop-filter:blur(10px);border:1px solid rgba(250,247,243,0.14);border-radius:999px;padding:11px 12px 11px 22px}
+.chip .brand{font-weight:600;color:#fff;font-size:16px}
+.chip .brand b{color:var(--accent)}
+.chip .r{display:flex;gap:8px;align-items:center}
+.chip .r a{color:var(--cream);text-decoration:none;font-size:14px;font-weight:500;padding:0 10px;opacity:0.85}
+.chip .r a:hover{opacity:1}
+.chip .r .go{background:var(--accent);color:#fff;border-radius:999px;padding:9px 18px;opacity:1}
+
+/* manifesto hero */
+.manifesto{padding:110px 0 90px}
+.manifesto .eyebrow{font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent);margin-bottom:34px}
+.manifesto h1{font-family:var(--display);font-weight:800;font-size:clamp(46px,8.5vw,104px);line-height:0.98;letter-spacing:-0.02em;color:#fff;max-width:14ch}
+.manifesto h1 .u{color:var(--accent)}
+.manifesto .sub{font-size:clamp(18px,2vw,22px);color:var(--muted);max-width:40ch;margin-top:34px}
+.manifesto .cta{margin-top:42px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:15px 30px;border-radius:9px}
+.btn:hover{background:#ff5230}
+.link{color:#fff;text-decoration:none;font-weight:600;font-size:15px;border-bottom:2px solid var(--accent);padding-bottom:3px}
+
+/* stance lines — big sparse statements */
+.stances{border-top:1px solid rgba(250,247,243,0.14)}
+.stance{padding:52px 0;border-bottom:1px solid rgba(250,247,243,0.14);display:grid;grid-template-columns:80px 1fr;gap:30px;align-items:start}
+.stance .no{font-family:var(--display);font-weight:800;font-size:24px;color:var(--accent)}
+.stance h2{font-family:var(--display);font-weight:800;font-size:clamp(24px,3.2vw,36px);line-height:1.15;color:#fff;margin-bottom:12px}
+.stance p{color:var(--muted);max-width:56ch;font-size:17px}
+
+/* services — terse three lines */
+.offer{padding:88px 0 30px}
+.offer .h{font-family:var(--display);font-weight:800;font-size:clamp(26px,3.4vw,40px);color:#fff;margin-bottom:8px}
+.offer .hint{color:var(--muted);margin-bottom:40px}
+.offer-item{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:26px 0;border-top:1px solid rgba(250,247,243,0.14);flex-wrap:wrap}
+.offer-item:last-child{border-bottom:1px solid rgba(250,247,243,0.14)}
+.offer-item .l .t{font-family:var(--display);font-weight:800;font-size:22px;color:#fff}
+.offer-item .l .d{color:var(--muted);font-size:15px;margin-top:4px;max-width:52ch}
+.offer-item a{color:var(--accent);text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap}
+
+/* team one-liner */
+.who{padding:80px 0}
+.who p{font-family:var(--display);font-weight:800;font-size:clamp(24px,3.2vw,38px);line-height:1.25;color:#fff;max-width:22ch}
+.who .names{margin-top:26px;color:var(--steel);font-size:15px;letter-spacing:0.04em}
+
+/* Ft5 statement footer */
+.statement{background:var(--cream);color:var(--navy);text-align:center;padding:92px 34px 40px}
+.statement h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,56px);line-height:1.04;max-width:16ch;margin:0 auto 26px;letter-spacing:-0.015em}
+.statement .btn{font-size:17px}
+.statement .foot{margin-top:44px;font-size:13px;letter-spacing:0.06em;color:var(--steel);text-transform:uppercase}
+.statement a{color:var(--navy)}
+
+@media(max-width:640px){.stance{grid-template-columns:1fr;gap:8px}.offer-item{flex-direction:column;gap:10px}.chip .r a:not(.go){display:none}}
+</style>
+</head>
+<body>
+
+<div class="chip">
+  <div class="bar">
+    <div class="brand">Health<b>&middot;</b>Collider</div>
+    <div class="r">
+      <a href="#offer">Services</a>
+      <a href="#who">Who we are</a>
+      <a class="go" href="#talk">Book a call</a>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="container manifesto">
+    <div class="eyebrow">NHS market access &middot; by practising clinicians</div>
+    <h1>The NHS adopts by <span class="u">evolution</span>, not revolution.</h1>
+    <p class="sub">We win market access and market share for health-tech - by reframing your product so NHS buyers feel they self-selected it.</p>
+    <div class="cta"><a class="btn" href="#talk">Book an intro call</a><a class="link" href="#offer">How we work &rarr;</a></div>
+  </section>
+
+  <section class="container stances">
+    <div class="stance"><div class="no">01</div><div><h2>The NHS isn't one market. It's dozens.</h2><p>Forty-two ICBs, each with its own rulebook, budget, and reasons to say "not this year". "We're in the NHS" travels nowhere on its own. We know which door opens which.</p></div></div>
+    <div class="stance"><div class="no">02</div><div><h2>Your product is rarely the blocker.</h2><p>Access is. Positioning is. Whether value becomes sustainable funding is. We work the barrier that actually stops adoption - not the one that's easiest to talk about.</p></div></div>
+    <div class="stance"><div class="no">03</div><div><h2>We sit on the buyer's side of the table.</h2><p>Practising NHS clinicians who have built and scaled health businesses and sit on the committees that decide what gets adopted. The advice is lived, not theoretical.</p></div></div>
+  </section>
+
+  <section id="offer" class="container offer">
+    <div class="h">Three ways in.</div>
+    <div class="hint">Scoped on the call. Flexible structures for pre-revenue companies.</div>
+    <div class="offer-item"><div class="l"><div class="t">Consultancy</div><div class="d">One challenge, a named specialist, a written plan in five working days.</div></div><a href="#talk">Start a session &rarr;</a></div>
+    <div class="offer-item"><div class="l"><div class="t">Advisory retainer</div><div class="d">The clinical, commercial, and regulatory team, ongoing, as you scale.</div></div><a href="#talk">Work monthly &rarr;</a></div>
+    <div class="offer-item"><div class="l"><div class="t">Market Access Project</div><div class="d">An independent seven-domain readiness assessment, traffic-light report, and roadmap.</div></div><a href="#talk">Assess readiness &rarr;</a></div>
+  </section>
+
+  <section id="who" class="container who">
+    <p>Founded and run by three practising NHS clinicians.</p>
+    <div class="names">Dr Junaid Hussain, CEO &middot; Dr Valeed Ghafoor, COO &middot; Dr Aaron Smith, CTO &nbsp;&mdash;&nbsp; backed by an 800+ clinician community</div>
+  </section>
+
+  <section id="talk" class="statement">
+    <h2>Bring us the product. We'll find the way in.</h2>
+    <a class="btn" href="mailto:contact@healthcollider.com">Book an intro call</a>
+    <div class="foot"><a href="mailto:contact@healthcollider.com">contact@healthcollider.com</a> &middot; Health Collider</div>
+  </section>
+</main>
+
+</body>
+</html>

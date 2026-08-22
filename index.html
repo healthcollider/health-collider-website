@@ -56,6 +56,10 @@
   ]
 }
 </script>
+
+<!-- Marks that JS is available before first paint, so main.css can collapse the
+     mobile nav into a drawer. Without it the nav stays a plain stacked list. -->
+<script>document.documentElement.className+=" js";</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -110,13 +114,13 @@
           <span class="k">Entering</span>
           <h3>Breaking into the NHS</h3>
           <p>You have a product and regulatory base, but the NHS looks like a patchwork of mini-markets with no clear way in.</p>
-          <ul><li>Routes to market: ICBs, PCNs, procurement</li><li>Positioning that clears the "who are you?" barrier</li><li>The first paying foothold</li></ul>
+          <ul><li>Routes to market: ICBs, PCNs, procurement</li><li>Positioning that clears the &ldquo;who are you?&rdquo; barrier</li><li>The first paying foothold</li></ul>
           <a class="card-link" href="/services/#consultancy">Start with a consultancy session &rarr;</a>
         </article>
         <article class="card">
           <span class="k">Scaling</span>
           <h3>Stuck after the first win</h3>
-          <p>You are live in one trust or ICB, but adoption is not travelling to the next. National rollout stays a fantasy.</p>
+          <p>You're live in one trust or ICB, but adoption isn't travelling to the next. National rollout stays a fantasy.</p>
           <ul><li>Land-and-expand across the system</li><li>Frameworks that let you sell wider</li><li>ROI evidence that unlocks recurring funding</li></ul>
           <a class="card-link" href="/services/#retainer">Explore an advisory retainer &rarr;</a>
         </article>
@@ -136,7 +140,7 @@
     <div class="container">
       <span class="eyebrow">How we win adoption</span>
       <h2>The NHS adopts by evolution, not revolution.</h2>
-      <p>Disruptive products stall on "who are you to tell us?". We reframe them so buyers feel they self-selected best practice - a positioning playbook proven across GP triage, hospital service lines, and CQC tooling. That reframe is usually worth more than any change to the product itself.</p>
+      <p>Disruptive products stall on &ldquo;who are you to tell us?&rdquo;. We reframe them so buyers feel they self-selected best practice - a positioning playbook proven across GP triage, hospital service lines, and CQC tooling. That reframe is usually worth more than any change to the product itself.</p>
     </div>
   </section>
 
@@ -146,7 +150,7 @@
       <div class="section-head">
         <span class="eyebrow">What we do</span>
         <h2>Three ways to work with us.</h2>
-        <p>From a single expert session to an independent, end-to-end readiness assessment.</p>
+        <p>From a single expert session to an independent, end-to-end readiness assessment. Flexible structures, including equity and profit-share, for pre-revenue companies.</p>
       </div>
       <div class="cards">
         <article class="card">
@@ -167,16 +171,6 @@
           <p>Seven domains, a traffic-light report, and a prioritised roadmap to NHS adoption.</p>
           <a class="card-link" href="/services/#market-access-project">Learn more &rarr;</a>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- proof: quote -->
-  <section class="section">
-    <div class="container">
-      <div class="quote">
-        <blockquote>Thanks to Collider's hard work and expertise, we were able to launch our pilot phase on schedule with high-quality, well-aligned sites.</blockquote>
-        <p class="cite">Taha &middot; Founder, Mindbay.ai</p>
       </div>
     </div>
   </section>
@@ -212,6 +206,16 @@
     </div>
   </section>
 
+  <!-- proof: testimonial placed immediately before the closing ask -->
+  <section class="section">
+    <div class="container">
+      <div class="quote">
+        <blockquote>Thanks to Collider's hard work and expertise, we were able to launch our pilot phase on schedule with high-quality, well-aligned sites.</blockquote>
+        <p class="cite">Taha &middot; Founder, Mindbay.ai</p>
+      </div>
+    </div>
+  </section>
+
   <!-- cta band -->
   <section class="cta-band">
     <div class="container">
@@ -228,9 +232,16 @@
         <h3>The Market Access Brief</h3>
         <p>Once a month: what changed in NHS market access, and what it means for a health-tech founder. No noise.</p>
       </div>
-      <form action="/contact/" method="get" aria-label="Newsletter signup">
+      <!-- POSTs to the same formsubmit.co inbox the contact page uses, so a subscriber
+           is actually recorded. Never method="get" here: that wrote the address into the
+           URL, browser history and every log on the path, and subscribed nobody.
+           _honey is an invisible bot trap. -->
+      <form action="https://formsubmit.co/contact@healthcollider.com" method="POST" aria-label="Newsletter signup">
+        <input type="hidden" name="_subject" value="New Market Access Brief subscriber">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
         <label class="visually-hidden" for="news-email">Email address</label>
-        <input type="email" id="news-email" name="email" placeholder="you@company.com" required>
+        <input type="email" id="news-email" name="email" placeholder="you@company.com" required autocomplete="email">
         <button class="btn btn-primary" type="submit">Subscribe</button>
       </form>
     </div>

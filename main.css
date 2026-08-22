@@ -22,7 +22,8 @@
   --steel: #3E5C84;   /* labels, links, secondary UI */
   --soft:  #E9EDF4;   /* panels, dividers */
   --muted: #64748B;   /* secondary text */
-  --accent:#E8431C;   /* CTAs / key highlights ONLY, ~10% */
+  --accent:#E8431C;   /* decorative only (dots, focus rings) - 4.00:1 on white, fails AA for text */
+  --accent-strong:#C93B14; /* text + CTA surfaces: 5.10:1 on white, 4.77:1 on cream */
   --accent-ink: #ffffff;
   --white: #ffffff;
   /* traffic-light: reserved EXCLUSIVELY for the seven-domain grid */
@@ -63,7 +64,7 @@ h2 { font-size: clamp(26px, 3.4vw, 38px); }
 h3 { font-size: clamp(19px, 2vw, 23px); }
 p  { max-width: 62ch; }
 a  { color: var(--steel); text-decoration-thickness: 1px; text-underline-offset: 2px; }
-a:hover { color: var(--accent); }
+a:hover { color: var(--accent-strong); }
 :focus-visible { outline: none; box-shadow: var(--focus); border-radius: 4px; }
 strong { font-weight: 600; }
 .eyebrow { font-family: var(--sans); font-weight: 600; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel); }
@@ -80,12 +81,12 @@ strong { font-weight: 600; }
   border: 1.5px solid transparent; cursor: pointer; text-decoration: none;
   transition: transform 0.12s ease, background-color 0.12s ease, box-shadow 0.12s ease;
 }
-.btn-primary { background: var(--accent); color: var(--accent-ink); }
-.btn-primary:hover { color: #fff; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(232,67,28,0.28); }
+.btn-primary { background: var(--accent-strong); color: var(--accent-ink); }
+.btn-primary:hover { color: #fff; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(201,59,20,0.28); }
 .btn-ghost { background: transparent; color: var(--navy); border-color: var(--navy); }
 .btn-ghost:hover { background: var(--navy); color: #fff; }
-.btn-on-dark { background: var(--accent); color: #fff; }
-.btn-on-dark:hover { color: #fff; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(232,67,28,0.4); }
+.btn-on-dark { background: var(--accent-strong); color: #fff; }
+.btn-on-dark:hover { color: #fff; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(201,59,20,0.4); }
 
 /* ---------- nav ---------- */
 .nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,243,0.9); backdrop-filter: blur(8px); border-bottom: 1px solid var(--soft); }
@@ -94,8 +95,11 @@ strong { font-weight: 600; }
 .brand img { width: 30px; height: 30px; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a { color: var(--navy); text-decoration: none; font-weight: 500; font-size: 15px; }
-.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover { color: var(--accent-strong); }
 .nav-links .btn { padding: 9px 18px; }
+/* `.nav-links a` (0,1,1) outranks `.btn-primary` (0,1,0), which was painting the header
+   CTA navy-on-orange while every other primary button was white. Restore the intended ink. */
+.nav-links a.btn-primary { color: var(--accent-ink); }
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
 .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 4px 0; transition: 0.2s; }
 
@@ -128,8 +132,8 @@ strong { font-weight: 600; }
 .card p { color: var(--muted); font-size: 15.5px; margin-bottom: 16px; }
 .card ul { list-style: none; margin: 0 0 18px; }
 .card ul li { position: relative; padding-left: 22px; font-size: 15px; color: var(--navy); margin-bottom: 8px; }
-.card ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
-.card .card-link { margin-top: auto; font-weight: 600; font-size: 15px; color: var(--accent); text-decoration: none; }
+.card ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent-strong); font-weight: 600; }
+.card .card-link { margin-top: auto; font-weight: 600; font-size: 15px; color: var(--accent-strong); text-decoration: none; }
 .card .card-link:hover { text-decoration: underline; }
 
 /* ---------- story band (navy) ---------- */
@@ -142,8 +146,8 @@ strong { font-weight: 600; }
 /* ---------- quote (centrepiece) ---------- */
 .quote { text-align: center; max-width: 46ch; margin: 0 auto; }
 .quote blockquote { font-family: var(--display); font-weight: 800; font-size: clamp(21px, 2.8vw, 29px); line-height: 1.32; letter-spacing: -0.01em; color: var(--navy); }
-.quote blockquote::before { content: "\201C"; color: var(--accent); }
-.quote blockquote::after { content: "\201D"; color: var(--accent); }
+.quote blockquote::before { content: "\201C"; color: var(--accent-strong); }
+.quote blockquote::after { content: "\201D"; color: var(--accent-strong); }
 .quote .cite { margin-top: 20px; font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--steel); font-style: normal; }
 
 /* ---------- founders ---------- */
@@ -151,7 +155,7 @@ strong { font-weight: 600; }
 .founder { text-align: center; }
 .founder .face { width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 16px; background: var(--soft); border: 2px solid var(--steel); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 800; font-size: 30px; color: var(--steel); }
 .founder h3 { font-size: 20px; margin-bottom: 4px; }
-.founder .role { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.founder .role { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-strong); margin-bottom: 10px; }
 .founder p { font-size: 15px; color: var(--muted); margin: 0 auto; max-width: 34ch; }
 
 /* ---------- seven-domain grid (ONLY place traffic-light colour appears) ---------- */
@@ -172,7 +176,7 @@ strong { font-weight: 600; }
 .service-block .lede { font-size: 18px; color: var(--muted); margin: 12px 0 24px; }
 .feature-list { list-style: none; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 28px; }
 .feature-list li { position: relative; padding-left: 26px; font-size: 15.5px; }
-.feature-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.feature-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--accent-strong); font-weight: 700; }
 
 /* ---------- cta band ---------- */
 .cta-band { background: var(--navy); color: #fff; text-align: center; }
@@ -210,17 +214,33 @@ strong { font-weight: 600; }
 .footer-cols { display: flex; gap: 64px; flex-wrap: wrap; }
 .footer-bottom { padding-top: 22px; font-size: 13px; color: #7f93b8; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 
+/* ---------- FAQ (objection handling; mirrors the FAQPage schema) ---------- */
+.faq { max-width: 760px; }
+.faq-item { border-top: 1px solid var(--soft); padding: 22px 0; }
+.faq-item:last-child { border-bottom: 1px solid var(--soft); }
+.faq-item h3 { font-size: 19px; margin-bottom: 8px; }
+.faq-item p { color: var(--muted); font-size: 16px; }
+
 /* ---------- responsive ---------- */
 @media (max-width: 860px) {
   .cards, .founders { grid-template-columns: 1fr; }
   .domains { grid-template-columns: repeat(2, 1fr); }
   .feature-list { grid-template-columns: 1fr; }
   .split { grid-template-columns: 1fr; gap: 32px; }
-  .nav-links { position: fixed; inset: 61px 0 auto 0; background: var(--cream); flex-direction: column; align-items: flex-start; gap: 0; padding: 8px 24px 20px; border-bottom: 1px solid var(--soft); box-shadow: var(--shadow); display: none; }
-  .nav-links.open { display: flex; }
+  /* No-JS baseline: the nav is a stacked list in normal flow, so it is always
+     reachable. Do NOT give .nav-links `display:none` here - that hid the entire
+     mobile nav whenever JS was unavailable. */
+  .nav-inner { flex-wrap: wrap; }
+  .nav-links { flex-direction: column; align-items: flex-start; gap: 0; width: 100%; padding: 4px 0 12px; }
   .nav-links a { padding: 12px 0; width: 100%; border-bottom: 1px solid var(--soft); }
   .nav-links .btn { margin-top: 12px; }
-  .nav-toggle { display: block; }
+  .nav-toggle { display: none; }
+
+  /* JS present (html.js is set by an inline script in <head>): collapse the same
+     list into a toggleable drawer and reveal the hamburger. */
+  .js .nav-links { position: fixed; inset: 61px 0 auto 0; width: auto; background: var(--cream); padding: 8px 24px 20px; border-bottom: 1px solid var(--soft); box-shadow: var(--shadow); display: none; }
+  .js .nav-links.open { display: flex; }
+  .js .nav-toggle { display: block; }
   .news .container { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 520px) {

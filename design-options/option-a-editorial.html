@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option A · Editorial — Health Collider</title>
+<style>
+/* Hallmark · macrostructure: Long Document (editorial) · nav: N6 Masthead · footer: Ft6 Letter-close
+ * theme: HC brand (cream paper · navy ink · warm accent) · genre: editorial
+ * audience: health-tech founders/CEOs · use: book intro call · tone: authoritative editorial
+ * pre-emit critique: P5 H5 E4 S4 R5 V4 */
+@font-face { font-family:"Playfair Display"; font-weight:800; font-display:swap; src:url("/assets/fonts/playfair-display-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family:"Poppins"; font-weight:400; font-display:swap; src:url("/assets/fonts/poppins-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family:"Poppins"; font-weight:500; font-display:swap; src:url("/assets/fonts/poppins-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family:"Poppins"; font-weight:600; font-display:swap; src:url("/assets/fonts/poppins-latin-600-normal.woff2") format("woff2"); }
+:root{
+  --cream:#FAF7F3; --navy:#0D1B34; --steel:#3E5C84; --soft:#E9EDF4; --muted:#5b6472;
+  --accent:#C93B14; --line:#d8cfc4;
+  --display:"Playfair Display",Georgia,serif; --sans:"Poppins",-apple-system,sans-serif;
+  color-scheme:only light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--cream);color:var(--navy);font-family:var(--sans);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 28px}
+a{color:var(--accent);text-underline-offset:3px}
+
+/* N6 masthead */
+.masthead{border-bottom:2px solid var(--navy);text-align:center;padding:22px 28px 16px}
+.masthead .name{font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:-0.01em}
+.masthead .kick{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--steel);margin-top:4px}
+.masthead nav{margin-top:14px;display:flex;gap:26px;justify-content:center;flex-wrap:wrap;font-size:14px}
+.masthead nav a{color:var(--navy);text-decoration:none;font-weight:500}
+.masthead nav a:hover{color:var(--accent)}
+
+/* hero — editorial opener */
+.opener{padding:64px 0 20px;text-align:center}
+.opener .dateline{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--steel);margin-bottom:22px}
+.opener h1{font-family:var(--display);font-weight:800;font-size:clamp(38px,6.2vw,62px);line-height:1.06;letter-spacing:-0.015em;max-width:16ch;margin:0 auto}
+.opener .stand{font-size:20px;color:var(--muted);max-width:44ch;margin:22px auto 26px}
+.opener .byline{font-size:13px;letter-spacing:0.04em;color:var(--steel);text-transform:uppercase}
+.opener .cta{margin-top:30px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:13px 26px;border-radius:7px}
+.btn:hover{background:#b0330f}
+.btn-text{display:inline-block;margin-left:18px;color:var(--navy);font-weight:600;font-size:15px;text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:2px}
+
+hr.rule{border:0;border-top:1px solid var(--line);margin:52px 0}
+.drop{padding-top:8px}
+.drop p{margin-bottom:20px}
+.drop p:first-of-type::first-letter{font-family:var(--display);font-weight:800;font-size:66px;float:left;line-height:0.8;padding:6px 12px 0 0;color:var(--accent)}
+.lead-label{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--steel);margin-bottom:14px}
+
+/* pull quote */
+.pull{border-left:3px solid var(--accent);padding:6px 0 6px 26px;margin:44px 0;font-family:var(--display);font-weight:800;font-size:26px;line-height:1.3;color:var(--navy)}
+
+/* services as a numbered editorial list */
+.svc{margin:12px 0}
+.svc-item{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:26px 0;border-top:1px solid var(--line)}
+.svc-item:last-child{border-bottom:1px solid var(--line)}
+.svc-num{font-family:var(--display);font-weight:800;font-size:30px;color:var(--accent);line-height:1}
+.svc-item h3{font-family:var(--display);font-weight:800;font-size:22px;margin-bottom:6px}
+.svc-item p{color:var(--muted);font-size:16px}
+.svc-item a{font-size:14px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:1px}
+
+/* founders — editorial contributors row */
+.contribs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;margin-top:18px}
+.contrib .nm{font-family:var(--display);font-weight:800;font-size:19px}
+.contrib .rl{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin:3px 0 8px}
+.contrib p{font-size:14px;color:var(--muted);line-height:1.55}
+
+/* letter-close footer */
+.close{background:var(--navy);color:#cdd6e4;margin-top:60px;padding:56px 0 34px;text-align:center}
+.close h2{font-family:var(--display);color:#fff;font-weight:800;font-size:30px;max-width:20ch;margin:0 auto 12px}
+.close p{color:#a9b6ce;max-width:46ch;margin:0 auto 24px;font-size:16px}
+.close .sign{margin-top:34px;font-family:var(--display);font-style:italic;font-size:17px;color:#fff}
+.close .meta{margin-top:8px;font-size:12px;letter-spacing:0.06em;color:#7f93b8}
+.close a{color:#fff}
+
+@media(max-width:640px){.contribs{grid-template-columns:1fr;gap:22px}.svc-item{grid-template-columns:38px 1fr;gap:14px}.btn-text{display:block;margin:14px 0 0}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="name">Health Collider</div>
+  <div class="kick">NHS Market Access &middot; Founded by clinicians</div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#view">The view</a>
+    <a href="#team">Who we are</a>
+    <a href="#talk">Book a call</a>
+  </nav>
+</header>
+
+<main>
+  <section class="opener wrap">
+    <div class="dateline">A consultancy for health-tech in the NHS</div>
+    <h1>The NHS didn't reject your product. It rejected how you asked.</h1>
+    <p class="stand">We are practising NHS clinicians who win market access and market share for health-technology companies - entry, adoption, and scale, from the buyer's side of the table.</p>
+    <div class="byline">By Hussain, Ghafoor &amp; Smith &middot; Practising NHS clinicians</div>
+    <div class="cta"><a class="btn" href="#talk">Book an intro call</a><a class="btn-text" href="#services">See how we work &rarr;</a></div>
+  </section>
+
+  <div class="wrap">
+    <hr class="rule">
+
+    <section id="view" class="drop">
+      <div class="lead-label">The view from the buyer's chair</div>
+      <p>Most health-tech founders think the NHS is one customer. It is dozens of mini-markets, each with its own rulebook, its own budget, and its own reasons to say "not this year". The blocker is rarely the technology. It is access, positioning, and whether value ever translates into sustainable funding.</p>
+      <p>That is the work we do. We have built and scaled health businesses ourselves and we sit on the committees that decide what gets adopted, so the advice is lived, not theoretical.</p>
+
+      <blockquote class="pull">The NHS adopts by evolution, not revolution. We reframe a product so buyers feel they self-selected best practice.</blockquote>
+
+      <p>That reframe removes the "who are you to tell us?" barrier - and it is usually worth more than any change to the product itself. It is a positioning playbook proven across GP triage, hospital service lines, and CQC tooling.</p>
+    </section>
+
+    <hr class="rule">
+
+    <section id="services">
+      <div class="lead-label">Three ways to work with us</div>
+      <div class="svc">
+        <div class="svc-item"><div class="svc-num">01</div><div><h3>Consultancy</h3><p>One defined challenge, a named specialist, and a written plan within five working days.</p><a href="#talk">Start with a session</a></div></div>
+        <div class="svc-item"><div class="svc-num">02</div><div><h3>Advisory retainer</h3><p>Ongoing access to the clinical, commercial, and regulatory team as you enter and scale.</p><a href="#talk">Work with us monthly</a></div></div>
+        <div class="svc-item"><div class="svc-num">03</div><div><h3>Market Access Project</h3><p>An independent seven-domain readiness assessment with a traffic-light report and a prioritised roadmap.</p><a href="#talk">Assess your readiness</a></div></div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section id="team">
+      <div class="lead-label">Who you work with</div>
+      <div class="contribs">
+        <div class="contrib"><div class="nm">Dr Junaid Hussain</div><div class="rl">CEO</div><p>Strategy, partnerships, and market positioning across the UK and Middle East. Runs an 800+ clinician community.</p></div>
+        <div class="contrib"><div class="nm">Dr Valeed Ghafoor</div><div class="rl">COO</div><p>Commercial strategy, NHS procurement, and primary-care pathways. NICE committee member.</p></div>
+        <div class="contrib"><div class="nm">Dr Aaron Smith</div><div class="rl">CTO</div><p>Product assessment, medical-device regulation, compliance, and quality management systems.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <section id="talk" class="close">
+    <div class="wrap">
+      <h2>Talk to a clinician who sells into the NHS.</h2>
+      <p>Tell us where you are and we'll tell you honestly what would move it. 30 minutes, no deck required. We respond within two working days.</p>
+      <a class="btn" href="mailto:contact@healthcollider.com">Book an intro call</a>
+      <div class="sign">Hussain, Ghafoor &amp; Smith</div>
+      <div class="meta">contact@healthcollider.com &middot; Health Collider</div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
