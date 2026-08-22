@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Health Collider mark: orange square + double navy chevrons -->
+  <rect x="6" y="98" width="30" height="30" rx="6" fill="#E8431C"/>
+  <path d="M56 52 L104 100 L56 148" fill="none" stroke="#0D1B34" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M112 28 L184 100 L112 172" fill="none" stroke="#0D1B34" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
