@@ -262,12 +262,17 @@
               <input type="text" id="c-specialty" name="specialty" required placeholder="e.g. general practice, cardiology, emergency medicine">
             </div>
             <fieldset class="field">
-              <legend>What would you like to hear about? *</legend>
+              <legend>What would you like to hear about?</legend>
+              <p class="field-hint">Tick any that apply. Leave them all unticked to hear about everything.</p>
               <label class="check"><input type="checkbox" name="interests" value="Questionnaires"> Questionnaires and surveys</label>
               <label class="check"><input type="checkbox" name="interests" value="Interviews"> Interviews and focus groups</label>
               <label class="check"><input type="checkbox" name="interests" value="Advisory"> Ongoing advisory roles</label>
             </fieldset>
-            <label class="check"><input type="checkbox" name="consent" required> I am happy to be contacted about opportunities. *</label>
+            <div class="consent-block">
+              <label class="check"><input type="checkbox" name="consent" required>
+                <span>I am happy for Health Collider to contact me about opportunities. <strong>Required</strong></span>
+              </label>
+            </div>
             <button class="btn btn-primary" type="submit">Apply to join</button>
             <p class="expectation">We never pass your details to a company without your say-so on that specific opportunity. See our <a href="/privacy/">privacy notice</a> for how we handle your data.</p>
           </form>
