@@ -231,3 +231,18 @@ fieldset.field .check + .check { margin-top: 8px; }
 .partner-mark img { max-height: 44px; width: auto; display: block; }
 .partner h3 a { color: var(--navy); text-decoration: none; }
 .partner h3 a:hover { color: var(--accent-strong); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- legal pages: privacy notice, terms ----------
+   Long-form prose, so a measure cap and generous spacing rather than the
+   marketing rhythm used elsewhere. */
+.legal { max-width: 72ch; }
+.legal h2 { font-size: clamp(21px, 2.3vw, 25px); margin: 40px 0 12px; }
+.legal h3 { font-size: 17px; margin: 26px 0 6px; }
+.legal p { color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+.legal p.legal-lede { font-size: 18px; color: #4A5768; margin-bottom: 8px; }
+.legal ul { margin: 0 0 14px 20px; }
+.legal li { color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
+.legal table { font-size: 14.5px; }
+.legal .tbl-scroll { margin: 8px 0 18px; }
+.legal-updated { font-family: var(--data); font-size: 13px; color: var(--steel);
+  letter-spacing: 0.02em; }
