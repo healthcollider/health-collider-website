@@ -3,43 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Book an Intro Call | Health Collider</title>
-<meta name="description" content="Book a 30-minute intro call with a practising NHS clinician about taking your health-tech product into the NHS. We respond within 2 working days.">
+<title>Talk to a Clinician Who Sells Into Healthcare | Health Collider</title>
+<meta name="description" content="Thirty minutes, no deck. Tell us where you are and we will tell you honestly what would move it. We respond within two working days.">
 <link rel="canonical" href="https://healthcollider.com/contact/">
-<meta name="robots" content="index,follow">
-<meta name="theme-color" content="#0D1B34">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Health Collider">
-<meta property="og:title" content="Book an Intro Call | Health Collider">
-<meta property="og:description" content="Talk to a clinician who sells into the NHS. 30 minutes, response within 2 working days.">
+<meta property="og:title" content="Book an intro call with Health Collider">
+<meta property="og:description" content="Thirty minutes, no deck. Tell us where you are and we will tell you honestly what would move it. We respond within two working days.">
 <meta property="og:url" content="https://healthcollider.com/contact/">
-<meta property="og:image" content="https://healthcollider.com/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Book an Intro Call | Health Collider">
-<meta name="twitter:description" content="Talk to a clinician who sells into the NHS.">
-<meta name="twitter:image" content="https://healthcollider.com/assets/og-image.png">
+<meta name="twitter:title" content="Book an intro call with Health Collider">
+<meta name="twitter:description" content="Thirty minutes, no deck. Tell us where you are and we will tell you honestly what would move it. We respond within two working days.">
 <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/playfair-display-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/main.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "name": "Book an intro call with Health Collider",
-  "url": "https://healthcollider.com/contact/",
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://healthcollider.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Contact", "item": "https://healthcollider.com/contact/"}
-    ]
-  }
-}
-</script>
-
-<!-- Marks that JS is available before first paint, so main.css can collapse the
-     mobile nav into a drawer. Without it the nav stays a plain stacked list. -->
+<link rel="stylesheet" href="/v2.css">
 <script>document.documentElement.className+=" js";</script>
 </head>
 <body>
@@ -52,8 +31,9 @@
     <nav class="nav-links" id="nav-links" aria-label="Primary">
       <a href="/services/">Services</a>
       <a href="/about/">About</a>
+      <a href="/clinicians/">Clinicians</a>
       <a href="/contact/">Contact</a>
-      <a class="btn btn-primary" href="/contact/">Book an intro call</a>
+      <a class="btn btn-primary" href="https://cal.com/healthcollider/intro" rel="noopener">Book an intro call</a>
     </nav>
   </div>
 </header>
@@ -62,9 +42,8 @@
 
   <section class="hero" style="padding-bottom:24px">
     <div class="container">
-      <span class="eyebrow">Book an intro call</span>
-      <h1>Talk to a clinician who sells into the NHS.</h1>
-      <p class="lead">30 minutes, no deck required. Tell us where you are and we'll tell you honestly what would move it. We respond within 2 working days.</p>
+      <h1>Talk to a clinician who sells into healthcare.</h1>
+      <p class="lead">30 minutes, no deck. We respond within 2 working days.</p>
     </div>
   </section>
 
@@ -72,15 +51,9 @@
     <div class="container">
       <div class="split">
 
-        <!-- left: the form (progressive qualification: low-friction first) -->
         <div>
           <h2 style="font-size:23px;margin-bottom:8px">Send a few details</h2>
-          <p class="expectation" style="margin-bottom:20px">The more we know, the more useful the call. Only name and email are required.</p>
-          <!-- FORM HANDLER: FormSubmit is a no-backend default that works on static hosting.
-               On the first real submission it sends a one-time activation email to
-               contact@healthcollider.com - confirm it once and the form is live.
-               Swap the action for a Google Calendar appointment-scheduling embed, or a
-               different handler, at cutover (open decision 2/3). -->
+          <p class="expectation" style="margin-bottom:20px">Every field is required. It is how we come to the call already knowing where you are.</p>
           <form class="form-grid" action="https://formsubmit.co/contact@healthcollider.com" method="POST">
             <input type="hidden" name="_subject" value="New intro-call enquiry from healthcollider.com">
             <input type="hidden" name="_captcha" value="true">
@@ -94,44 +67,54 @@
               <input type="email" id="f-email" name="email" required autocomplete="email">
             </div>
             <div class="field">
-              <label for="f-company">Company</label>
-              <input type="text" id="f-company" name="company" autocomplete="organization">
+              <label for="f-company">Company *</label>
+              <input type="text" id="f-company" name="company" required autocomplete="organization">
             </div>
             <div class="field">
-              <label for="f-stage">Product stage</label>
-              <select id="f-stage" name="product_stage">
+              <label for="f-stage">Product stage *</label>
+              <select id="f-stage" name="product_stage" required>
                 <option value="">Select...</option>
                 <option>Pre-revenue / building</option>
-                <option>Finished product, not yet in the NHS</option>
-                <option>Live in one NHS site or ICB</option>
+                <option>Finished product, not yet in a healthcare setting</option>
+                <option>Live in one healthcare site</option>
                 <option>Live in several, trying to scale</option>
               </select>
             </div>
             <div class="field">
-              <label for="f-blocker">What's blocking you right now?</label>
-              <textarea id="f-blocker" name="current_blocker" placeholder="e.g. we have a pilot but it isn't converting to a contract"></textarea>
+              <label for="f-blocker">What's blocking you right now? *</label>
+              <textarea id="f-blocker" name="current_blocker" required placeholder="e.g. we have a pilot but it isn't converting to a contract"></textarea>
             </div>
             <button class="btn btn-primary" type="submit">Request a call</button>
-            <p class="expectation">We'll never share your details, and we won't add you to anything you didn't ask for. We respond within 2 working days. Prefer email? <a href="mailto:contact@healthcollider.com">contact@healthcollider.com</a></p>
+            <p class="expectation">We respond within 2 working days. Prefer email? <a href="mailto:contact@healthcollider.com">contact@healthcollider.com</a></p>
           </form>
         </div>
 
-        <!-- right: booking + direct contact -->
         <aside>
           <div class="card" style="cursor:default">
             <span class="k">Straight to the diary</span>
             <h3>Book a slot</h3>
-            <p>Prefer to pick a time now? Grab a 30-minute intro call directly.</p>
-            <!-- BOOKING EMBED: drop the Google Calendar appointment-scheduling link here
-                 once Junaid's booking page exists (open decision 2/3). Until then this
-                 routes to email so the CTA is never dead. -->
-            <a class="btn btn-primary" href="mailto:contact@healthcollider.com?subject=Intro%20call%20booking" style="margin-top:auto">Request a time</a>
+            <p>Pick a slot in the diary now - no back and forth.</p>
+            <a class="btn btn-primary" href="https://cal.com/healthcollider/intro" rel="noopener" style="margin-top:auto">Pick a time</a>
           </div>
           <div class="card" style="cursor:default;margin-top:20px">
             <span class="k">Direct</span>
             <h3>Other ways to reach us</h3>
-            <p style="margin-bottom:14px"><a href="mailto:contact@healthcollider.com">contact@healthcollider.com</a></p>
-            <p><a href="https://www.linkedin.com/company/health-collider" rel="noopener">Health Collider on LinkedIn</a></p>
+            <ul class="contact-list">
+              <li>
+                <a href="mailto:contact@healthcollider.com">
+                  <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7.5 8.2 5.6a1.4 1.4 0 0 0 1.6 0L21 7.5"/></svg>
+                  <span>contact@healthcollider.com</span>
+                  <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/company/health-collider" rel="noopener">
+                  <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3.2 9h3.6v12H3.2zM9.2 9h3.45v1.65h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.03 4.3 4.9V21h-3.6v-5.55c0-1.32-.02-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94V21H9.2z"/></svg>
+                  <span>Health Collider on LinkedIn</span>
+                  <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+              </li>
+            </ul>
           </div>
         </aside>
 
@@ -144,25 +127,37 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-top">
-      <a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="30" height="30"><span>Health Collider</span></a>
+      <a class="brand" href="/"><img src="/assets/logo-light.svg" alt="" width="30" height="30"><span>Health Collider</span></a>
       <div class="footer-cols">
         <div class="footer-col">
           <h4>Company</h4>
           <a href="/services/">Services</a>
           <a href="/about/">About</a>
           <a href="/contact/">Contact</a>
+          <a href="/clinicians/">Clinicians</a>
         </div>
         <div class="footer-col">
           <h4>Get in touch</h4>
-          <a href="/contact/">Book an intro call</a>
           <a href="mailto:contact@healthcollider.com">contact@healthcollider.com</a>
+          <a href="https://cal.com/healthcollider/intro" rel="noopener">Book an intro call</a>
           <a href="https://www.linkedin.com/company/health-collider" rel="noopener">LinkedIn</a>
         </div>
+      </div>
+      <div class="footer-news">
+        <h4>Newsletter</h4>
+        <p>The Collider Brief - one email a month on health policy, procurement and regulation. Leave in one click.</p>
+        <form action="https://formsubmit.co/contact@healthcollider.com" method="POST" aria-label="Newsletter signup">
+          <input type="hidden" name="_subject" value="New Collider Brief subscriber">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="visually-hidden" for="news-email">Email address</label>
+          <input type="email" id="news-email" name="email" placeholder="you@company.com" required autocomplete="email">
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Health Collider. Accelerating healthcare innovation into practice.</span>
-      <span>Founded and run by practising NHS clinicians.</span>
     </div>
   </div>
 </footer>
