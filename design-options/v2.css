@@ -1,0 +1,233 @@
+/* Health Collider - v2 overrides. Loaded AFTER /main.css by every v2 page
+   (rebuild-v2, v2-services, v2-about, v2-contact) so a fix lands once.
+   The live site does not load this file. */
+
+/* ============================================================
+   REBUILD v2 - structural changes only, same palette + type scale
+   ============================================================ */
+
+/* --- FIX: nothing on the page is stark white any more, and section banding
+   is done with a warm tint rather than hairline dividers.
+   Aaron: "This white background looks odd" / "I wouldn't use dividing lines". */
+@font-face {
+  font-family: "Space Grotesk"; font-style: normal; font-weight: 700;
+  font-display: swap; src: url("/assets/fonts/space-grotesk-latin-700-normal.woff2") format("woff2");
+}
+:root {
+  --panel: #FFFDFA;
+  --rule: #E4DED5;
+  --alt: #F4F0E8;   /* alt-section banding, replacing hairline dividers */
+  --data: "Space Grotesk", ui-monospace, "SF Mono", Menlo, monospace;
+}
+.section-alt { background: var(--alt); border-top: 0; border-bottom: 0; }
+.card { background: var(--panel); border-color: var(--rule); }
+.news { background: var(--alt); border-top: 0; }
+.news input[type=email] { background: var(--panel); }
+
+/* --- FIX: text selection. Chrome's default ::selection over the footer's
+   light-on-navy links renders light-on-light, which is the "white on white
+   when you highlight" Aaron saw. Define it once, site-wide.               */
+::selection { background: var(--accent-strong); color: #fff; }
+
+/* --- HERO: no eyebrow, shorter lead. The H1 carries it alone. ----------- */
+.hero { padding: clamp(64px, 9vw, 116px) 0 clamp(32px, 5vw, 56px); }
+.hero h1 { max-width: 14ch; }
+.hero .cta-row { margin-top: clamp(30px, 4.5vw, 48px); }
+.hero .lead { font-size: clamp(18px, 2.1vw, 22px); color: #4A5768; max-width: 46ch; margin: 22px 0 30px; }
+
+/* --- PROOF BAR: replaces the caps-and-orange-dots trust strip. ----------
+   Figures, not label chips. Cream ground so it reads as part of the page. */
+/* No top/bottom rules: separation comes from space, not a drawn line. */
+.proof-inner { max-width: var(--maxw); margin: 0 auto; padding: 4px 24px 40px;
+  display: flex; flex-wrap: wrap; gap: 24px 72px; }
+.proof-item { display: flex; flex-direction: column; gap: 4px; }
+/* Third type role - data/figures. Space Grotesk's flat terminals and single-storey
+   'a' read as instrumentation rather than editorial, so a number stops competing
+   with the Playfair headline directly above it. Already self-hosted. */
+.proof-fig { font-family: var(--data); font-weight: 700; font-size: clamp(25px, 2.9vw, 32px);
+  line-height: 1; color: var(--navy); letter-spacing: -0.03em; font-feature-settings: "tnum" 1; }
+.proof-lab { font-size: 13.5px; line-height: 1.35; color: var(--muted); max-width: 22ch; }
+
+/* --- PROCESS SPINE: the signature. ---------------------------------------
+   Numbered because the content genuinely is a sequence - a founder moves
+   through these four in order. A connecting rule makes that literal, which
+   the old "three things we do" list could not, because it was a menu.     */
+.spine { max-width: 860px; margin-top: 8px; }
+.step { position: relative; display: grid; grid-template-columns: 56px 1fr; gap: 24px; padding: 0 0 40px; }
+.step:last-child { padding-bottom: 0; }
+/* the connecting line, drawn between node centres only */
+.step:not(:last-child)::before { content: ""; position: absolute; left: 27px; top: 46px; bottom: 6px;
+  width: 2px; background: linear-gradient(var(--accent) 0 55%, var(--rule) 55% 100%); }
+.step-node { width: 56px; height: 56px; border-radius: 50%; background: var(--alt);
+  border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center;
+  font-family: var(--display); font-weight: 800; font-size: 22px; color: var(--accent-strong);
+  position: relative; z-index: 1; }
+.step-body { padding-top: 8px; }
+.step-body h3 { font-size: 21px; margin-bottom: 7px; }
+.step-body p { color: var(--muted); font-size: 16px; max-width: 56ch; }
+.step-meta { display: inline-block; margin-top: 10px; font-size: 14px; font-weight: 500;
+  color: var(--steel); }
+
+/* --- SERVICE CARDS: now carry a named deliverable list. ------------------
+   The teardown finding - Concordance ships six named deliverables per pack,
+   HC shipped a metaphor ("your advisory board, on tap").                   */
+.deliv { list-style: none; margin: 6px 0 18px; padding-top: 0; }
+.deliv li { position: relative; padding-left: 20px; font-size: 14.5px; color: var(--navy); margin-bottom: 7px; line-height: 1.45; }
+/* specificity: main.css `.card ul li::before` is (0,1,3) and was beating this
+   at (0,1,2), so the deliverable lists rendered arrows instead of the dash
+   marker. Same trap as `.contact-list` below - matched the weight. */
+.card ul.deliv li::before { content: ""; position: absolute; left: 0; top: 8px; width: 7px; height: 2px; background: var(--accent-strong); }
+.deliv-h { font-size: 11px; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; color: var(--steel); margin-bottom: 10px; }
+.card .deliv li.tbc-line { color: #93A0B2; font-style: italic; }
+
+/* --- FOUNDERS: real photographs replace the initials discs. -------------- */
+/* Situation card -> service routing, stated rather than implied by the link target. */
+.card-route { margin-top: auto; padding-top: 16px; }
+.card-route a { font-weight: 600; font-size: 15px; color: var(--accent-strong); text-decoration: none; }
+.card-route a:hover { text-decoration: underline; }
+/* Two testimonials, not one - the second was sitting unused in the charter. */
+.quotes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.q { margin: 0; background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius); padding: 28px 26px; }
+.q blockquote { font-family: var(--display); font-weight: 800; font-size: clamp(18px, 1.9vw, 21px);
+  line-height: 1.38; letter-spacing: -0.01em; color: var(--navy); }
+.q blockquote::before { content: "\201C"; color: var(--accent-strong); }
+.q blockquote::after  { content: "\201D"; color: var(--accent-strong); }
+.q figcaption { margin-top: 20px; font-size: 14px; font-weight: 500; color: var(--steel);
+  display: flex; align-items: center; gap: 12px; }
+/* Same circle as .founder .face on the About page, sized down for a quote card.
+   Currently a monogram; drop in a headshot with
+   <span class="q-face"><img src="/assets/team/taha.jpg" alt=""></span>. */
+.q-face { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%; overflow: hidden;
+  background: var(--soft); border: 2px solid var(--steel); display: flex;
+  align-items: center; justify-content: center;
+  font-family: var(--display); font-weight: 800; font-size: 17px; color: var(--steel); }
+.q-face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 860px) { .quotes { grid-template-columns: 1fr; } }
+
+.founder .face { padding: 0; overflow: hidden; border-color: var(--rule); background: var(--soft); }
+.founder .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* --- FAQ: styles already existed in main.css and were never used. -------- */
+.faq { display: grid; gap: 10px; }
+.faq-item { border: 0; background: var(--panel); border-radius: var(--radius);
+  padding: 20px 22px; }
+.faq-item:last-child { border-bottom: 0; }
+.faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: baseline;
+  justify-content: space-between; gap: 16px; font-family: var(--display); font-weight: 800;
+  font-size: 19px; color: var(--navy); line-height: 1.3; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; font-family: var(--sans); font-weight: 400; font-size: 22px;
+  color: var(--accent-strong); flex-shrink: 0; line-height: 1; transition: transform 0.16s ease; }
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { margin-top: 12px; }
+
+/* --- NEWSLETTER, folded into the footer ---------------------------------
+   It was a full-width band between the CTA and the footer, which read as a
+   stray third ending to the page. As a footer column it sits where a reader
+   already expects a subscribe box. */
+.footer-news { max-width: 320px; }
+.footer-news p { font-size: 14px; line-height: 1.5; color: #B9C3D6; margin-bottom: 14px; }
+.footer-news form { display: flex; gap: 8px; flex-wrap: wrap; }
+.footer-news input[type=email] { flex: 1 1 170px; min-width: 0; padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.22); border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.06); color: #fff;
+  font-family: var(--sans); font-size: 14px; }
+.footer-news input[type=email]::placeholder { color: #8798B5; }
+.footer-news input[type=email]:focus-visible { border-color: var(--accent); box-shadow: var(--focus); }
+.footer-news .btn { padding: 10px 16px; font-size: 14px; }
+
+/* --- FOOTER FIXES ------------------------------------------------------- */
+.footer-col a { color: #D7DFEA; }              /* was #cdd6e4 - lifts contrast on navy */
+.footer-col a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 860px) {
+  .proof-inner { grid-template-columns: repeat(2, 1fr); }
+  .step { grid-template-columns: 44px 1fr; gap: 18px; }
+  .step-node { width: 44px; height: 44px; font-size: 18px; }
+  .step:not(:last-child)::before { left: 21px; top: 38px; }
+}
+@media (max-width: 520px) { .proof-inner { grid-template-columns: 1fr; } }
+
+/* --- CONTACT: direct-contact rows ----------------------------------------
+   Two bare hyperlinks read as body text, not as things to click. These are
+   tappable rows with an icon, a target-sized hit area and a hover state, so
+   the affordance is obvious. Icons are inline SVG (no network request) and
+   inherit currentColor so they pick up the hover colour with the label. */
+.contact-list { list-style: none; margin: 0; display: grid; gap: 8px; }
+/* main.css sets `.card ul li::before { content:"→" }` for the bullet lists inside
+   situation cards. This list also lives in a .card, so it inherited a stray arrow
+   and a 22px indent outside each row. The reset must MATCH that selector's weight:
+   `.card ul li::before` is (0,1,3), so `.contact-list li::before` at (0,1,2) lost
+   despite loading later. Qualifying with `.card ul` takes it to (0,2,3). */
+.card ul.contact-list li { padding-left: 0; margin-bottom: 0; }
+.card ul.contact-list li::before { content: none; display: none; }
+.contact-list a { display: flex; align-items: center; gap: 12px;
+  padding: 13px 14px; border: 1px solid var(--rule); border-radius: var(--radius-sm);
+  background: var(--alt); color: var(--navy); text-decoration: none;
+  font-size: 15px; font-weight: 500; line-height: 1.3;
+  transition: border-color .14s ease, color .14s ease, background .14s ease; }
+.contact-list a:hover { border-color: var(--accent-strong); color: var(--accent-strong); background: var(--panel); }
+.contact-list svg { width: 20px; height: 20px; flex: 0 0 20px; }
+.contact-list .ico { color: var(--accent-strong); }
+.contact-list .arrow { margin-left: auto; width: 16px; flex-basis: 16px; opacity: .45; }
+.contact-list a:hover .arrow { opacity: 1; }
+
+/* ---------- clinician community page: checkbox groups ----------
+   main.css sets `.field input { width: 100% }` (0,1,1), which would stretch a
+   checkbox across the row, and `.field label` (0,1,1) makes every label a bold
+   block. Both are beaten on specificity here rather than with !important. */
+fieldset.field { border: 0; padding: 0; margin: 0; min-width: 0; }
+.field legend { font-weight: 600; font-size: 14px; margin-bottom: 8px; padding: 0; }
+.form-grid .check { display: flex; align-items: center; gap: 10px; margin-bottom: 0;
+  font-weight: 400; font-size: 15px; color: var(--navy); line-height: 1.4; cursor: pointer; }
+fieldset.field .check + .check { margin-top: 8px; }
+.check input[type=checkbox] { width: 18px; height: 18px; flex: 0 0 auto; margin: 0;
+  accent-color: var(--accent-strong); }
+.check input[type=checkbox]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Submit buttons were stretching to the full 560px grid column - a slab, not a
+   button. Size to content instead. Applies to both forms (join + contact). */
+.form-grid button[type=submit] { justify-self: start; }
+
+/* ---------- Product A: the self-serve purchase block ----------
+   The only place on the site where money changes hands, so it gets a panel of
+   its own rather than sitting in the prose. Price left, action right; the terms
+   sit with the price so nothing is discovered at checkout. */
+.buy { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 24px 40px;
+  align-items: flex-start; justify-content: space-between;
+  background: var(--panel); border: 1px solid var(--rule);
+  border-radius: var(--radius); padding: 26px 28px; }
+.buy-price { flex: 0 0 auto; }
+.buy-amount { display: block; font-family: var(--data); font-weight: 700;
+  font-size: clamp(30px, 3.4vw, 38px); line-height: 1; letter-spacing: -0.03em;
+  color: var(--navy); font-feature-settings: "tnum" 1; }
+.buy-unit { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); }
+.buy-act { flex: 1 1 320px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.buy-terms { font-size: 13.5px; line-height: 1.5; color: var(--muted); margin: 0; max-width: 68ch; }
+@media (max-width: 640px) { .buy { flex-direction: column; } }
+
+/* price line on the homepage service card */
+.card-price { margin: 4px 0 14px; font-size: 15px; color: var(--navy); }
+.card-price strong { font-family: var(--data); font-weight: 700; font-size: 17px;
+  letter-spacing: -0.02em; }
+
+/* ---------- partnerships: named partners, what each relationship does ----------
+   Two-up cards rather than a logo wall: a logo says nothing about why the
+   partnership exists, and prompts "who are these?" from a buyer who does not
+   recognise them. */
+.partners { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.partner { background: var(--panel); border: 1px solid var(--rule);
+  border-radius: var(--radius); padding: 28px 26px; display: flex; flex-direction: column; }
+.partner h3 { font-size: 21px; margin-bottom: 6px; }
+.partner-role { font-size: 11px; font-weight: 600; letter-spacing: 0.11em;
+  text-transform: uppercase; color: var(--steel); margin-bottom: 14px; }
+.partner p { font-size: 15px; color: var(--muted); line-height: 1.55; }
+.partner .card-link { margin-top: auto; padding-top: 16px; }
+@media (max-width: 860px) { .partners { grid-template-columns: 1fr; } }
+
+/* partner logo marks: contained to a fixed height so two very different logo
+   shapes (a square SVG glyph and a wide wordmark) sit on the same baseline. */
+.partner-mark { height: 44px; margin-bottom: 16px; display: flex; align-items: center; }
+.partner-mark img { max-height: 44px; width: auto; display: block; }
+.partner h3 a { color: var(--navy); text-decoration: none; }
+.partner h3 a:hover { color: var(--accent-strong); text-decoration: underline; text-underline-offset: 3px; }

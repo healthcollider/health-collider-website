@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health Collider - by ui-ux-pro-max</title>
+<style>
+/* Built applying ui-ux-pro-max library methodology.
+   Style: Soft Minimalism. Palette: navy #0D1B34 + steel + warm-neutral surface,
+   vermilion accent. Font pairing: Space Grotesk (display) / Poppins (body).
+   Priority rules enforced: contrast >=4.5:1, visible focus, 44px targets,
+   base 16px / line-height 1.5, semantic tokens, reduced-motion, no CLS. */
+@font-face{font-family:"Space Grotesk";font-weight:700;font-display:swap;src:url("/assets/fonts/space-grotesk-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-display:swap;src:url("/assets/fonts/space-grotesk-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"Poppins";font-weight:400;font-display:swap;src:url("/assets/fonts/poppins-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Poppins";font-weight:500;font-display:swap;src:url("/assets/fonts/poppins-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"Poppins";font-weight:600;font-display:swap;src:url("/assets/fonts/poppins-latin-600-normal.woff2") format("woff2")}
+:root{
+  --bg:#F6F4F0; --panel:#fff; --ink:#12203a; --muted:#5f6b7e; --line:#EAE6DF;
+  --navy:#0D1B34; --accent:#E8431C; --steel:#3E5C84; --tint:#EEF1F6;
+  --disp:"Space Grotesk","Poppins",sans-serif; --body:"Poppins",-apple-system,sans-serif;
+  --sh:0 1px 2px rgba(18,32,58,.04),0 8px 24px rgba(18,32,58,.06);
+  --sh-lg:0 2px 4px rgba(18,32,58,.05),0 18px 40px rgba(18,32,58,.10);
+  --r:16px; color-scheme:only light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;line-height:1.1}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;font-weight:600;font-size:15px;padding:12px 22px;border-radius:12px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn-a{background:var(--accent);color:#fff;box-shadow:0 6px 16px rgba(232,67,28,.24)}.btn-a:hover{transform:translateY(-1px)}
+.btn-o{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:var(--sh)}.btn-o:hover{transform:translateY(-1px)}
+
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;max-width:1120px;margin:0 auto}
+.brand{font-family:var(--disp);font-weight:700;font-size:18px;letter-spacing:-0.02em;text-decoration:none;color:var(--ink)}
+.nav .lk{display:flex;gap:28px;align-items:center;font-size:15px}
+.nav .lk a{color:var(--muted);text-decoration:none;font-weight:500;min-height:44px;display:inline-flex;align-items:center}.nav .lk a:hover{color:var(--ink)}
+
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:52px 0 72px}
+.eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--steel);background:var(--tint);padding:6px 12px;border-radius:99px;margin-bottom:20px}
+.hero h1{font-size:clamp(38px,5vw,58px)}.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{color:var(--muted);font-size:18px;margin:20px 0 28px;max-width:44ch}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.herocard{background:var(--panel);border-radius:20px;box-shadow:var(--sh-lg);padding:26px}
+.herocard .h{font-family:var(--disp);font-weight:700;font-size:16px;margin-bottom:4px}
+.herocard .s{font-size:12.5px;color:var(--muted);margin-bottom:16px}
+.hc-row{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-top:1px solid var(--line);font-size:14px}
+.hc-row:first-of-type{border-top:0}
+.dot{width:9px;height:9px;border-radius:50%}.dg{background:#1E9E6A}.da{background:#E0A83E}.dr{background:var(--accent)}
+
+.strip{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:10px 34px;padding:16px 28px;font-size:13px;font-weight:500;color:var(--steel)}
+.strip span{display:inline-flex;align-items:center;gap:9px}.strip span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+.sec{padding:76px 0}
+.head{max-width:58ch;margin-bottom:40px}
+.head .k{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--steel);display:block;margin-bottom:12px}
+.head h2{font-size:clamp(28px,3.4vw,40px)}.head p{color:var(--muted);font-size:18px;margin-top:12px}
+
+/* bento pains */
+.bento{display:grid;grid-template-columns:1.4fr 1fr;grid-auto-rows:1fr;gap:16px}
+.tile{background:var(--panel);border-radius:var(--r);box-shadow:var(--sh);padding:26px}
+.tile.big{grid-row:span 2;display:flex;flex-direction:column;justify-content:center}
+.tile .t{font-family:var(--disp);font-weight:700;font-size:20px;margin-bottom:8px}
+.tile p{color:var(--muted);font-size:15px}
+.tile.big .t{font-size:26px}
+
+.moves{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.move{background:var(--panel);border-radius:var(--r);box-shadow:var(--sh);padding:24px}
+.move .n{width:34px;height:34px;border-radius:10px;background:var(--tint);color:var(--steel);font-family:var(--disp);font-weight:700;display:grid;place-items:center;margin-bottom:14px}
+.move h3{font-size:18px;margin-bottom:6px}.move p{color:var(--muted);font-size:14.5px}
+
+.band{background:var(--navy);color:#fff;border-radius:24px;margin:0 28px}
+.band .in{max-width:1064px;margin:0 auto;padding:66px 32px}
+.band .k{color:#8ba0c4;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;display:block}
+.band h2{color:#fff;font-size:clamp(26px,3.2vw,40px);max-width:22ch}.band p{color:#b9c3d6;font-size:17px;max-width:58ch;margin-top:16px}
+
+.svcs{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
+.svc{background:var(--panel);border-radius:var(--r);box-shadow:var(--sh);padding:26px}
+.svc.lead{grid-row:span 2;display:flex;flex-direction:column}
+.svc .k{font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.svc h3{font-size:21px;margin-bottom:8px}.svc p{color:var(--muted);font-size:15px}
+.svc.lead .chips{margin-top:auto;padding-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.svc.lead .chips span{font-size:12.5px;background:var(--tint);border-radius:8px;padding:7px 11px;color:var(--ink)}
+
+.quote{text-align:center;max-width:46ch;margin:0 auto}
+.quote blockquote{font-family:var(--disp);font-weight:700;font-size:clamp(21px,2.7vw,28px);line-height:1.3}
+.quote .c{margin-top:16px;font-size:13px;font-weight:600;color:var(--steel)}
+
+.cta{text-align:center}.cta .in{background:var(--navy);border-radius:24px;padding:72px 28px;color:#fff}
+.cta h2{color:#fff;font-size:clamp(28px,3.6vw,42px);max-width:22ch;margin:0 auto}.cta p{color:#b9c3d6;margin:14px auto 24px;max-width:46ch}
+
+.ft{margin-top:20px}.ft .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:34px 28px;font-size:14px;color:var(--muted)}
+.ft a{color:var(--muted);text-decoration:none}
+
+@media(max-width:860px){.hero{grid-template-columns:1fr;gap:34px}.bento,.moves,.svcs{grid-template-columns:1fr}.tile.big,.svc.lead{grid-row:auto}.nav .lk a:not(.btn){display:none}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="/">Health Collider</a>
+  <nav class="lk"><a href="#pains">The problem</a><a href="#services">Services</a><a href="#talk">About</a><a class="btn btn-a" href="#talk">Book an intro call</a></nav>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div>
+      <span class="eyebrow">NHS market access consultancy</span>
+      <h1>You built it. Now get it <em>sold</em> into the NHS.</h1>
+      <p>Practising NHS clinicians who've built, exited, and evaluated health-tech. We turn a strong product that isn't landing contracts into NHS revenue - by getting you in front of the people who decide, mapping who actually pays, and positioning you so buyers say yes.</p>
+      <div class="cta-row"><a class="btn btn-a" href="#talk">Book an intro call</a><a class="btn btn-o" href="#services">See how we work</a></div>
+    </div>
+    <div class="herocard" role="img" aria-label="Market access readiness across seven domains, traffic-light rated">
+      <div class="h">Market Access Readiness</div><div class="s">Seven domains, traffic-light rated</div>
+      <div class="hc-row"><span>Clinical relevance</span><span class="dot dg"></span></div>
+      <div class="hc-row"><span>Product &amp; user experience</span><span class="dot dg"></span></div>
+      <div class="hc-row"><span>Technical architecture</span><span class="dot da"></span></div>
+      <div class="hc-row"><span>Regulatory &amp; compliance</span><span class="dot dg"></span></div>
+      <div class="hc-row"><span>Commercial viability</span><span class="dot da"></span></div>
+      <div class="hc-row"><span>Market positioning</span><span class="dot dr"></span></div>
+      <div class="hc-row"><span>Adoption &amp; implementation</span><span class="dot da"></span></div>
+    </div>
+  </section>
+
+  <div class="strip"><div class="wrap"><span>Founded &amp; run by practising NHS clinicians</span><span>NICE committee experience</span><span>800+ clinician community</span></div></div>
+
+  <section id="pains" class="sec"><div class="wrap">
+    <div class="head"><span class="k">Sound familiar?</span><h2>The product's rarely the problem. Getting it sold is.</h2></div>
+    <div class="bento">
+      <div class="tile big"><div class="t">A pipeline that won't close</div><p>Strong product, good demos - but the contracts aren't happening, and deals die at the final hurdle after months of talks. The most common thing we hear.</p></div>
+      <div class="tile"><div class="t">You can't see who pays</div><p>No obvious payer, no clear route, and pricing in the NHS is a black box.</p></div>
+      <div class="tile"><div class="t">You can't get in the room</div><p>Selling to R&amp;D and practice managers when the decision sits with an inner circle of execs.</p></div>
+    </div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0"><div class="wrap">
+    <div class="head"><span class="k">How we actually move the needle</span><h2>The three things founders ask us for most.</h2></div>
+    <div class="moves">
+      <div class="move"><div class="n">1</div><h3>Warm introductions to the people who decide</h3><p>ICB commissioners, senior clinicians, the inner circle. Real introductions, not a cold list.</p></div>
+      <div class="move"><div class="n">2</div><h3>A map of how the money flows</h3><p>Who pays, who benefits, and how to price for the NHS.</p></div>
+      <div class="move"><div class="n">3</div><h3>One team, not five advisors</h3><p>Clinical, commercial and regulatory in one room. "No one brings it together." We do.</p></div>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="in"><span class="k">How we win adoption</span><h2>The NHS adopts by evolution, not revolution.</h2><p>Disruptive products stall on "who are you to tell us?". We reframe them so buyers feel they self-selected best practice - proven across GP triage, hospital service lines, and CQC tooling. That reframe is usually worth more than any change to the product itself.</p></div></section>
+
+  <section id="services" class="sec"><div class="wrap">
+    <div class="head"><span class="k">What we do</span><h2>Three ways to work with us.</h2><p>From one expert session to an independent, end-to-end readiness assessment. Flexible structures, including equity and profit-share, for pre-revenue companies.</p></div>
+    <div class="svcs">
+      <div class="svc lead"><div class="k">Market Access Project</div><h3>Independent readiness assessment</h3><p>Not a report that sits on a shelf. A structured view of what's blocking NHS revenue and a traffic-light roadmap of what to fix, in what order.</p><div class="chips"><span>Clinical relevance</span><span>Product &amp; UX</span><span>Technical</span><span>Regulatory</span><span>Commercial</span><span>Positioning</span><span>Adoption</span></div></div>
+      <div class="svc"><div class="k">Consultancy</div><h3>A focused expert session</h3><p>One session, a named specialist, a written plan. The low-risk way to start.</p></div>
+      <div class="svc"><div class="k">Advisory retainer</div><h3>Your advisory board, on tap</h3><p>Clinical, commercial and regulatory depth without the overhead.</p></div>
+    </div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0"><div class="wrap"><div class="quote"><blockquote>Thanks to Collider's hard work and expertise, we were able to launch our pilot phase on schedule with high-quality, well-aligned sites.</blockquote><div class="c">Taha &middot; Founder, Mindbay.ai</div></div></div></section>
+
+  <section id="talk" class="cta"><div class="wrap"><div class="in"><h2>Talk to a clinician who sells into the NHS.</h2><p>30 minutes, no deck required. We respond within two working days.</p><a class="btn btn-a" href="mailto:contact@healthcollider.com">Book an intro call</a></div></div></section>
+</main>
+
+<footer class="ft"><div class="wrap"><span>Health Collider - Accelerating healthcare innovation into practice</span><a href="mailto:contact@healthcollider.com">contact@healthcollider.com</a></div></footer>
+</body>
+</html>

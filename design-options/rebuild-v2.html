@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health Collider - homepage rebuild v2</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/playfair-display-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Reuses the LIVE design system unchanged. Everything below in <style> is either
+     a new module (proof bar, process spine, deliverable lists, FAQ, newsletter) or a
+     fix for something Aaron flagged in review. No token values are altered. -->
+<link rel="stylesheet" href="/main.css">
+<script>document.documentElement.className+=" js";</script>
+<link rel="stylesheet" href="/design-options/v2.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/design-options/rebuild-v2.html"><img src="/assets/logo.svg" alt="" width="30" height="30"><span>Health Collider</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="/design-options/v2-services.html">Services</a>
+      <a href="/design-options/v2-about.html">About</a>
+      <a href="/design-options/v2-clinicians.html">Clinicians</a>
+      <a href="/design-options/v2-contact.html">Contact</a>
+      <a class="btn btn-primary" href="https://cal.com/healthcollider/intro" rel="noopener">Book an intro call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 1. HERO - title and CTA only. Subtitle removed 25 Aug 2026 (Junaid): the
+       tagline carries the positioning in the dark band, the hero does not repeat it.
+       "healthcare" not "NHS" at the top level, so a private-sector pivot stays open. -->
+  <section class="hero">
+    <div class="container">
+      <h1>You built it. Now get it sold into healthcare.</h1>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://cal.com/healthcollider/intro" rel="noopener">Book an intro call</a>
+        <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PROOF BAR removed 25 Aug 2026 (Junaid): sentence fragments bolted onto
+       figures. The 800+ community claim now lives in one place, the About page. -->
+
+  <!-- 3. THE PROBLEM section removed 25 Aug 2026 (Junaid): the "three ways to start"
+       trio below covers the same ground and is broader. Kept the routing intent there. -->
+
+  <!-- 4. HOW AN ENGAGEMENT STARTS removed 25 Aug 2026 (Aaron): the three-step
+       spine duplicated what the service cards already say. The hero's "see how it
+       works" link now points at the service trio, which carries the same id. -->
+
+  <!-- 5. DARK BAND removed 25 Aug 2026 (Aaron): "evolution, not revolution" is
+       positioning language for a pitch, not for a buyer landing on the homepage. -->
+
+  <!-- 6. SERVICES - now with named deliverables per engagement. -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-head">
+        <h2>Three ways to start.</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="k">Consultancy</span>
+          <h3>A two-hour strategic session</h3>
+          <p>Two hours with a named specialist, on whatever you need to work through. The low-risk way to start.</p>
+          <ul class="deliv" aria-label="What you receive">
+            <li>Two hours with a named specialist</li>
+            <li>Bring more than one topic - it is your session</li>
+            <li>A written summary within five working days</li>
+          </ul>
+          <p class="card-price"><strong>&pound;750</strong> per session</p>
+          <a class="card-link" href="/design-options/v2-services.html#consultancy">Learn more &rarr;</a>
+        </article>
+        <article class="card">
+          <span class="k">Advisory retainer</span>
+          <h3>Clinical, commercial and regulatory in one team</h3>
+          <p>Ongoing access to the team, structured around your specific needs rather than a fixed package.</p>
+          <ul class="deliv" aria-label="What you receive">
+            <li>Monthly strategy meeting with the team</li>
+            <li>Email support, reply within two working days</li>
+            <li>Quarterly review</li>
+          </ul>
+          <a class="card-link" href="/design-options/v2-services.html#retainer">Learn more &rarr;</a>
+        </article>
+        <article class="card">
+          <span class="k">Market Access Project</span>
+          <h3>Independent readiness assessment</h3>
+          <p>An independent read on what is blocking your revenue and scale in healthcare. Not a report that sits on a shelf.</p>
+          <ul class="deliv" aria-label="What you receive">
+            <li>Seven domains, from clinical relevance to adoption readiness</li>
+            <li>Traffic-light report with a prioritised roadmap</li>
+            <li>Delivered in four to six weeks</li>
+          </ul>
+          <a class="card-link" href="/design-options/v2-services.html#market-access-project">Learn more &rarr;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FOUNDERS - real photographs. Aaron is CPO. -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Expert clinicians with significant commercial experience.</h2>
+        <p>Thirty years between us building and selling health technology, and practising in the system that buys it. Lived, not theoretical.</p>
+      </div>
+      <div class="founders">
+        <div class="founder">
+          <div class="face"><img src="/assets/team/junaid.jpg" alt="Dr Junaid Hussain" width="96" height="96" loading="lazy"></div>
+          <h3>Dr Junaid Hussain</h3>
+          <p class="role">CEO</p>
+          <p>Strategy, partnerships, and market positioning across the UK and Middle East health-innovation ecosystem.</p>
+        </div>
+        <div class="founder">
+          <div class="face"><img src="/assets/team/valeed.jpg" alt="Dr Valeed Ghafoor" width="96" height="96" loading="lazy"></div>
+          <h3>Dr Valeed Ghafoor</h3>
+          <p class="role">COO</p>
+          <p>Commercial strategy, healthcare procurement, and primary-care pathway development. NICE committee member.</p>
+        </div>
+        <div class="founder">
+          <div class="face"><img src="/assets/team/aaron.jpg" alt="Dr Aaron Smith" width="96" height="96" loading="lazy"></div>
+          <h3>Dr Aaron Smith</h3>
+          <p class="role">CPO</p>
+          <p>Product assessment, medical-device regulation, compliance, and quality management systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. PROOF - the one testimonial we can name. No logo wall by choice. -->
+  <section class="section">
+    <div class="container">
+      <div class="quotes">
+        <figure class="q">
+          <blockquote>Thanks to Collider's hard work and expertise, we were able to launch our pilot phase on schedule with high-quality, well-aligned sites.</blockquote>
+          <figcaption>
+            <span class="q-face"><img src="/assets/team/taha.jpg" alt="" width="44" height="44" loading="lazy"></span>
+            <span>Taha &middot; Founder, Mindbay.ai</span>
+          </figcaption>
+        </figure>
+        <figure class="q">
+          <blockquote>The Health Collider team were great to work with, easygoing, really supportive, and helped us connect with innovative healthcare providers genuinely open to doing things differently.</blockquote>
+          <figcaption>
+            <span class="q-face"><img src="/assets/team/nara.jpg" alt="" width="44" height="44" loading="lazy"></span>
+            <span>Nara &middot; Founder, PAL Helps</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8b. PARTNERSHIPS - PARKED 29 Aug 2026 pending written approval from Assuric
+       and GIANT Health. Both are third-party names and logos, so neither goes on a
+       public page until they have said yes. Evidence so far: Paul at Assuric
+       proposed a mutual partnership-page listing himself on the 27 Aug call
+       (dossier: companies/assuric); GIANT Health has no recorded agreement, only
+       Junaid's 22 Aug outbound proposal to Barry.
+       The finished markup is kept verbatim in design-options/_parked/partnerships.html
+       and the logos remain in assets/partners/ - drop it back in here when approved. -->
+
+  <!-- 9. FAQ - objection handling, and the questions buyers actually type. -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Questions founders ask us first.</h2>
+      </div>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>How do I get my health-tech product adopted in healthcare?</summary>
+          <p>It turns on three things: a payer with budget, someone who can sign, and a proposition that reads as best practice rather than disruption. Most founders solve one and assume the rest follow.</p>
+        </details>
+        <details class="faq-item">
+          <summary>We already have an advisor. Why would we need you?</summary>
+          <p>Most advisors sell one slice - compliance here, sales there, nobody joining them up. We cover clinical, commercial and regulatory as one team, and we are on the buyer's side of the table in our day jobs.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What does a healthcare market access consultancy actually do?</summary>
+          <p>Maps how money reaches your product, identifies who decides, and positions it so healthcare buyers can say yes. For us that also means routes into ICBs and PCNs, and a clinician community that can supply pilot sites and case studies.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How quickly does anything actually happen?</summary>
+          <p>A session summary lands within five working days, a full assessment in four to six weeks. Scope and dates are agreed in writing first.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. CTA BAND -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Talk to a clinician who sells into healthcare.</h2>
+      <p>30 minutes, no deck required. We respond within 2 working days.</p>
+      <a class="btn btn-on-dark" href="https://cal.com/healthcollider/intro" rel="noopener">Book an intro call</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <!-- light logo variant: the navy chevrons were invisible on the navy footer -->
+      <a class="brand" href="/design-options/rebuild-v2.html"><img src="/assets/logo-light.svg" alt="" width="30" height="30"><span>Health Collider</span></a>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/design-options/v2-services.html">Services</a>
+          <a href="/design-options/v2-about.html">About</a>
+          <a href="/design-options/v2-contact.html">Contact</a>
+          <a href="/design-options/v2-clinicians.html">Clinicians</a>
+        </div>
+        <div class="footer-col">
+          <h4>Get in touch</h4>
+          <!-- order per review: email first, then the call, then LinkedIn -->
+          <a href="mailto:contact@healthcollider.com">contact@healthcollider.com</a>
+          <a href="https://cal.com/healthcollider/intro" rel="noopener">Book an intro call</a>
+          <a href="https://www.linkedin.com/company/health-collider" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-news">
+        <h4>Newsletter</h4>
+        <p>The Collider Brief - one email a month on health policy, procurement and regulation. Leave in one click.</p>
+        <form action="https://formsubmit.co/contact@healthcollider.com" method="POST" aria-label="Newsletter signup">
+          <input type="hidden" name="_subject" value="New Collider Brief subscriber">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="visually-hidden" for="news-email">Email address</label>
+          <input type="email" id="news-email" name="email" placeholder="you@company.com" required autocomplete="email">
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Health Collider. Accelerating healthcare innovation into practice.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/main.js" defer></script>
+</body>
+</html>

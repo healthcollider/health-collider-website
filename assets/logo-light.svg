@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Footer/dark-surface variant: chevrons inverted to cream so the mark stays
+       visible on the navy footer. The orange square is unchanged - it reads on both. -->
+  <rect x="6" y="98" width="30" height="30" rx="6" fill="#E8431C"/>
+  <path d="M56 52 L104 100 L56 148" fill="none" stroke="#FAF7F3" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M112 28 L184 100 L112 172" fill="none" stroke="#FAF7F3" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

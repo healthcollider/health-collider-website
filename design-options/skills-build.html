@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health Collider - skills build (frontend-design + taste-skill)</title>
+<style>
+/* Built with anthropics/frontend-design + Leonxlnx/taste-skill methodology.
+   Design Read: landing for NHS health-tech buyers, serious-B2B trust-first,
+   navy-anchored restraint (off the cream/serif/terracotta AI default), one
+   signature = the route from product to signed contract. Dials: VAR 5 / MOT 3 / DEN 4.
+   Type: Space Grotesk (display) + Poppins (body) - deliberate non-default pairing. */
+@font-face{font-family:"Space Grotesk";font-weight:700;font-display:swap;src:url("/assets/fonts/space-grotesk-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-display:swap;src:url("/assets/fonts/space-grotesk-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"Poppins";font-weight:400;font-display:swap;src:url("/assets/fonts/poppins-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Poppins";font-weight:500;font-display:swap;src:url("/assets/fonts/poppins-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"Poppins";font-weight:600;font-display:swap;src:url("/assets/fonts/poppins-latin-600-normal.woff2") format("woff2")}
+:root{
+  --ink:#0D1B34; --paper:#F4F6F9; --white:#fff; --steel:#3E5C84; --muted:#5c6675;
+  --line:#DCE3EC; --accent:#E8431C; --ink-2:#13284a;
+  --disp:"Space Grotesk","Poppins",sans-serif; --body:"Poppins",-apple-system,sans-serif;
+  color-scheme:only light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;line-height:1.05}
+a{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-weight:600;font-size:15px;padding:13px 24px;border-radius:6px;text-decoration:none;transition:transform .12s,background-color .12s}
+.btn-a{background:var(--accent);color:#fff}.btn-a:hover{transform:translateY(-1px)}
+.btn-o{border:1.5px solid rgba(255,255,255,.35);color:#fff}.btn-o:hover{background:rgba(255,255,255,.08)}
+.btn-d{border:1.5px solid var(--ink);color:var(--ink)}.btn-d:hover{background:var(--ink);color:#fff}
+
+/* nav - edge aligned, no hairline default */
+.nav{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:22px 32px}
+.brand{font-family:var(--disp);font-weight:700;font-size:18px;letter-spacing:-0.02em;color:#fff;text-decoration:none}
+.brand .dot{color:var(--accent)}
+.nav .lk{display:flex;gap:30px;align-items:center}
+.nav .lk a{color:#c8d2e2;text-decoration:none;font-size:15px;font-weight:500}
+.nav .lk a:hover{color:#fff}
+
+/* hero on navy */
+.top{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.hero{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center;padding:36px 0 88px}
+.kick{font-family:var(--disp);font-weight:500;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#8ba0c4;margin-bottom:22px}
+.hero h1{font-size:clamp(40px,5.4vw,64px);color:#fff}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{color:#b9c3d6;font-size:19px;max-width:44ch;margin:24px 0 30px}
+.hcta{display:flex;gap:14px;flex-wrap:wrap}
+
+/* SIGNATURE: route from product to contract */
+.route{background:var(--ink-2);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:26px 24px}
+.route .rt{font-family:var(--disp);font-weight:500;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8ba0c4;margin-bottom:18px}
+.step{display:flex;gap:16px;align-items:flex-start;position:relative;padding-bottom:22px}
+.step:last-child{padding-bottom:0}
+.step .node{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:14px;background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.18);z-index:1}
+.step.done .node{background:var(--accent);border-color:var(--accent)}
+.step:not(:last-child)::before{content:"";position:absolute;left:16.5px;top:34px;bottom:0;width:1.5px;background:linear-gradient(var(--accent),rgba(255,255,255,.12))}
+.step .lab{padding-top:5px}
+.step .lab b{font-family:var(--disp);font-weight:500;font-size:15.5px;color:#fff;display:block}
+.step .lab span{font-size:13px;color:#93a1bb}
+
+/* strip */
+.strip{background:var(--ink-2);border-top:1px solid rgba(255,255,255,.08)}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:12px 40px;padding:16px 32px;font-family:var(--disp);font-weight:500;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#8ba0c4}
+
+/* section */
+.sec{padding:88px 0}
+.head{max-width:60ch;margin-bottom:44px}
+.head .k{font-family:var(--disp);font-weight:500;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--steel);display:block;margin-bottom:12px}
+.head h2{font-size:clamp(28px,3.6vw,42px)}
+.head p{color:var(--muted);font-size:18px;margin-top:14px}
+
+/* pains - asymmetric, not equal cards */
+.pains{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pain{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:26px}
+.pain:first-child{grid-column:1 / -1;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.pain:first-child .pc{flex:1;min-width:260px}
+.pain .t{font-family:var(--disp);font-weight:700;font-size:21px;margin-bottom:8px}
+.pain p{color:var(--muted);font-size:15.5px}
+.pain .q{font-family:var(--disp);font-weight:500;font-size:clamp(20px,2.6vw,30px);color:var(--ink);line-height:1.25;max-width:16ch}
+.pain .q span{color:var(--accent)}
+
+/* moves */
+.moves{max-width:900px}
+.move{display:grid;grid-template-columns:44px 1fr;gap:22px;padding:26px 0;border-top:1px solid var(--line)}
+.move:last-child{border-bottom:1px solid var(--line)}
+.move .mn{font-family:var(--disp);font-weight:700;font-size:24px;color:var(--accent)}
+.move h3{font-size:20px;margin-bottom:6px}
+.move p{color:var(--muted);font-size:16px}
+
+/* services */
+.svcs{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
+.svc{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:26px}
+.svc.lead{grid-row:span 2;display:flex;flex-direction:column}
+.svc .k{font-family:var(--disp);font-weight:500;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.svc h3{font-size:22px;margin-bottom:8px}
+.svc p{color:var(--muted);font-size:15px}
+.svc.lead .dom{margin-top:auto;padding-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.svc.lead .dom div{font-size:12.5px;padding:8px 11px;background:var(--paper);border:1px solid var(--line);border-radius:7px}
+
+/* band */
+.band{background:var(--ink);color:#fff}
+.band .wrap{padding:80px 32px}
+.band .k{color:#8ba0c4;font-family:var(--disp);font-weight:500;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px;display:block}
+.band h2{color:#fff;font-size:clamp(28px,3.6vw,42px);max-width:20ch}
+.band p{color:#b9c3d6;font-size:18px;max-width:56ch;margin-top:18px}
+
+/* quote + cta */
+.quote{text-align:center;max-width:44ch;margin:0 auto}
+.quote blockquote{font-family:var(--disp);font-weight:500;font-size:clamp(21px,2.8vw,30px);line-height:1.3;color:var(--ink)}
+.quote .c{margin-top:18px;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--steel)}
+.cta{background:var(--ink);color:#fff;text-align:center}
+.cta .wrap{padding:84px 32px}
+.cta h2{color:#fff;font-size:clamp(28px,4vw,46px);max-width:20ch;margin:0 auto}
+.cta p{color:#b9c3d6;margin:16px auto 28px;max-width:46ch}
+
+/* footer */
+.ft{background:var(--ink-2);color:#93a1bb}
+.ft .wrap{padding:44px 32px 30px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.ft a{color:#c8d2e2;text-decoration:none}
+
+@media(max-width:840px){.hero{grid-template-columns:1fr;gap:36px;padding-bottom:56px}.pains{grid-template-columns:1fr}.svcs{grid-template-columns:1fr}.svc.lead{grid-row:auto}.nav .lk a:not(.btn){display:none}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <header class="nav">
+    <a class="brand" href="/">Health<span class="dot">/</span>Collider</a>
+    <nav class="lk">
+      <a href="#pains">The problem</a>
+      <a href="#services">Services</a>
+      <a href="#talk">About</a>
+      <a class="btn btn-a" href="#talk">Book an intro call</a>
+    </nav>
+  </header>
+
+  <section class="wrap hero">
+    <div>
+      <div class="kick">NHS market access &middot; by practising clinicians</div>
+      <h1>You built it. Now get it <em>sold</em> into the NHS.</h1>
+      <p>Practising NHS clinicians who've built, exited, and evaluated health-tech. We turn a strong product that isn't landing contracts into NHS revenue.</p>
+      <div class="hcta"><a class="btn btn-a" href="#talk">Book an intro call</a><a class="btn btn-o" href="#services">See how we work</a></div>
+    </div>
+    <!-- SIGNATURE: the route clients say they can't travel alone -->
+    <div class="route" role="img" aria-label="The route from a built product to a signed NHS contract: get in the room, find who pays, position to win, sign the contract.">
+      <div class="rt">Product &rarr; signed contract</div>
+      <div class="step done"><div class="node">&check;</div><div class="lab"><b>You have a product</b><span>Built, regulated, demos well</span></div></div>
+      <div class="step"><div class="node">1</div><div class="lab"><b>Get in the room</b><span>Warm intros to the execs who decide</span></div></div>
+      <div class="step"><div class="node">2</div><div class="lab"><b>Find who pays</b><span>The money-flow map: payer, budget, price</span></div></div>
+      <div class="step"><div class="node">3</div><div class="lab"><b>Position to win</b><span>So buyers feel they self-selected you</span></div></div>
+      <div class="step"><div class="node" style="background:var(--accent);border-color:var(--accent)">&starf;</div><div class="lab"><b>Signed contract</b><span>NHS revenue, then the next one</span></div></div>
+    </div>
+  </section>
+</div>
+
+<div class="strip"><div class="wrap"><span>Founded &amp; run by practising NHS clinicians</span><span>NICE committee experience</span><span>800+ clinician community</span></div></div>
+
+<main>
+  <section id="pains" class="sec">
+    <div class="wrap">
+      <div class="head">
+        <span class="k">Sound familiar?</span>
+        <h2>The product's rarely the problem. Getting it sold is.</h2>
+      </div>
+      <div class="pains">
+        <div class="pain">
+          <div class="pc"><div class="t">A pipeline that won't close</div><p>Strong product, good demos - but the contracts aren't happening, and deals die at the final hurdle after months of talks. The most common thing we hear.</p></div>
+          <div class="q">"Our pipeline looks beautiful. The contracts just aren't <span>happening.</span>"</div>
+        </div>
+        <div class="pain"><div class="t">You can't see who pays</div><p>No obvious payer, no clear route, and pricing in the NHS is a black box. You need the money-flow map before the next rabbit hole.</p></div>
+        <div class="pain"><div class="t">You can't get in the room</div><p>You're selling to R&amp;D and practice managers when the decision sits with an inner circle of execs you can't reach.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><span class="k">How we actually move the needle</span><h2>The three things founders ask us for most.</h2></div>
+      <div class="moves">
+        <div class="move"><div class="mn">1</div><div><h3>Warm introductions to the people who decide</h3><p>ICB commissioners, senior clinicians, the inner circle - real introductions, not another cold list. This industry runs on connections, and connections are what we bring.</p></div></div>
+        <div class="move"><div class="mn">2</div><div><h3>A map of how the money flows</h3><p>Who pays, who benefits, and how to price for the NHS - so you stop disappearing down rabbit holes and aim at the routes that land contracts.</p></div></div>
+        <div class="move"><div class="mn">3</div><div><h3>One team, not five advisors</h3><p>Clinical, commercial, and regulatory in the same room. Founders keep telling us "no one brings it together." We're the ones who do.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band"><div class="wrap"><span class="k">How we win adoption</span><h2>The NHS adopts by evolution, not revolution.</h2><p>Disruptive products stall on "who are you to tell us?". We reframe them so buyers feel they self-selected best practice - proven across GP triage, hospital service lines, and CQC tooling. That reframe is usually worth more than any change to the product itself.</p></div></section>
+
+  <section id="services" class="sec">
+    <div class="wrap">
+      <div class="head"><span class="k">What we do</span><h2>Three ways to work with us.</h2><p>From one expert session to an independent, end-to-end readiness assessment. Flexible structures, including equity and profit-share, for pre-revenue companies.</p></div>
+      <div class="svcs">
+        <div class="svc lead">
+          <div class="k">Market Access Project</div>
+          <h3>Independent readiness assessment</h3>
+          <p>Not a report that sits on a shelf. A structured view of what's blocking NHS revenue - and a traffic-light roadmap of what to fix, in what order.</p>
+          <div class="dom"><div>Clinical relevance</div><div>Product &amp; UX</div><div>Technical architecture</div><div>Regulatory</div><div>Commercial viability</div><div>Positioning</div><div>Adoption</div><div>Traffic-light report</div></div>
+        </div>
+        <div class="svc"><div class="k">Consultancy</div><h3>A focused expert session</h3><p>One session, a named specialist, a written plan. The low-risk way to start - real impact before you commit.</p></div>
+        <div class="svc"><div class="k">Advisory retainer</div><h3>Your advisory board, on tap</h3><p>Clinical, commercial, and regulatory depth - without the overhead of hiring it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap"><div class="quote"><blockquote>Thanks to Collider's hard work and expertise, we were able to launch our pilot phase on schedule with high-quality, well-aligned sites.</blockquote><div class="c">Taha &middot; Founder, Mindbay.ai</div></div></div>
+  </section>
+
+  <section id="talk" class="cta"><div class="wrap"><h2>Talk to a clinician who sells into the NHS.</h2><p>30 minutes, no deck required. We respond within two working days.</p><a class="btn btn-a" href="mailto:contact@healthcollider.com">Book an intro call</a></div></section>
+</main>
+
+<footer class="ft"><div class="wrap"><a class="brand" href="/">Health<span class="dot">/</span>Collider</a><div>contact@healthcollider.com &middot; Accelerating healthcare innovation into practice</div></div></footer>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health Collider - design options gallery</title>
+<style>
+  :root{--bg:#0D1B34;--panel:#12244a;--ink:#eaf0f8;--muted:#9fb0cc;--line:#26385f;--accent:#E8431C;--good:#3fb37f}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1240px;margin:0 auto;padding:44px 28px 80px}
+  header h1{font-size:30px;letter-spacing:-0.02em;font-weight:700}
+  header p{color:var(--muted);margin-top:8px;max-width:70ch;font-size:15.5px}
+  .legend{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
+  .tag{font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+  .tag.live{border-color:var(--good);color:var(--good)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px;margin-top:34px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .15s,transform .15s}
+  .card:hover{border-color:#3a5488;transform:translateY(-2px)}
+  .thumb{position:relative;height:230px;overflow:hidden;background:#fff;border-bottom:1px solid var(--line)}
+  /* live preview: render the page at desktop width, scale it down to a thumbnail */
+  .thumb iframe{width:1280px;height:1600px;border:0;transform:scale(0.297);transform-origin:top left;pointer-events:none}
+  .thumb a.hit{position:absolute;inset:0;z-index:2}
+  .meta{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .meta .who{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)}
+  .meta h2{font-size:18px;font-weight:700;letter-spacing:-0.01em}
+  .meta p{font-size:13.5px;color:var(--muted);flex:1}
+  .meta .go{margin-top:8px;display:inline-flex;align-items:center;gap:7px;align-self:flex-start;font-size:13px;font-weight:600;color:#fff;background:var(--accent);padding:8px 14px;border-radius:8px;text-decoration:none}
+  .meta .go:hover{background:#cf3a13}
+  .grp{grid-column:1/-1;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);padding-top:22px;margin-top:6px}
+  footer{margin-top:48px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Health Collider - design options</h1>
+    <p>Every direction we've built, in one place. All use the same voice-of-customer copy and brand - only the design differs. Click any thumbnail (or "Open full") to view it full-size in a new tab.</p>
+    <div class="legend"><span class="tag live">Green = the current, copy-aligned, deploy-ready site</span><span class="tag">Others = explorations</span></div>
+  </header>
+
+  <div class="grid">
+
+    <div class="grp">The live site</div>
+    <div class="card">
+      <div class="thumb"><iframe src="/" loading="lazy" title="Current live site preview"></iframe><a class="hit" href="/" target="_blank" rel="noopener" aria-label="Open current site"></a></div>
+      <div class="meta"><span class="who" style="color:var(--good)">Current &middot; deploy-ready</span><h2>The live site</h2><p>Cream / Playfair editorial. Voice-of-customer copy, full SEO + JSON-LD + forms + accessibility. This is what deploys unless you pick another.</p><a class="go" href="/" target="_blank" rel="noopener">Open full &rarr;</a></div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><iframe src="/design-options/rebuild-v2.html" loading="lazy" title="Rebuild v2 preview"></iframe><a class="hit" href="/design-options/rebuild-v2.html" target="_blank" rel="noopener" aria-label="Open rebuild v2"></a></div>
+      <div class="meta"><span class="who" style="color:var(--accent)">New &middot; side-by-side candidate</span><h2>Rebuild v2</h2><p>Same brand, restructured. Proof bar replaces the caps strip, a four-step process spine replaces the third triad, services carry named deliverables, FAQ added, real founder photos, footer fixed. Placeholders are visibly marked.</p><a class="go" href="/design-options/rebuild-v2.html" target="_blank" rel="noopener">Open full &rarr;</a></div>
+    </div>
+
+    <div class="grp">One option per design skill (same copy, same brand)</div>
+    <div class="card">
+      <div class="thumb"><iframe src="/design-options/by-frontend-design.html" loading="lazy" title="frontend-design preview"></iframe><a class="hit" href="/design-options/by-frontend-design.html" target="_blank" rel="noopener" aria-label="Open frontend-design"></a></div>
+      <div class="meta"><span class="who">frontend-design &middot; Anthropic</span><h2>The route into the NHS</h2><p>Dark navy, Space Grotesk, and a signature access-map: your product threading past dead-end doors to the inner circle who decide. The boldest, most distinctive.</p><a class="go" href="/design-options/by-frontend-design.html" target="_blank" rel="noopener">Open full &rarr;</a></div>
+    </div>
+    <div class="card">
+      <div class="thumb"><iframe src="/design-options/by-taste-skill.html" loading="lazy" title="taste-skill preview"></iframe><a class="hit" href="/design-options/by-taste-skill.html" target="_blank" rel="noopener" aria-label="Open taste-skill"></a></div>
+      <div class="meta"><span class="who">taste-skill / design-taste-frontend</span><h2>Quiet trust</h2><p>Read the NHS-buyer audience as trust-first and dialled down. Cool white, flat, calm, restrained. Zero flourish - the "procurement panel" take.</p><a class="go" href="/design-options/by-taste-skill.html" target="_blank" rel="noopener">Open full &rarr;</a></div>
+    </div>
+    <div class="card">
+      <div class="thumb"><iframe src="/design-options/by-ui-ux-pro-max.html" loading="lazy" title="ui-ux-pro-max preview"></iframe><a class="hit" href="/design-options/by-ui-ux-pro-max.html" target="_blank" rel="noopener" aria-label="Open ui-ux-pro-max"></a></div>
+      <div class="meta"><span class="who">ui-ux-pro-max</span><h2>Polished soft-minimal</h2><p>Warm neutral, soft shadows, rounded bento tiles, the seven-domain assessment as a hero card. The safe, friendly, "competent product team" default.</p><a class="go" href="/design-options/by-ui-ux-pro-max.html" target="_blank" rel="noopener">Open full &rarr;</a></div>
+    </div>
+    <div class="card">
+      <div class="thumb"><iframe src="/design-options/skills-build.html" loading="lazy" title="skills blend preview"></iframe><a class="hit" href="/design-options/skills-build.html" target="_blank" rel="noopener" aria-label="Open skills blend"></a></div>
+      <div class="meta"><span class="who">frontend-design + taste-skill blend</span><h2>Navy + route (first pass)</h2><p>My earlier combined build: navy hero with a stepped product-to-contract route. Superseded by the per-skill frontend-design one, kept for reference.</p><a class="go" href="/design-options/skills-build.html" target="_blank" rel="noopener">Open full &rarr;</a></div>
+    </div>
+
+    <div class="grp">Earlier Hallmark explorations</div>
+    <div class="card">
+      <div class="thumb"><iframe src="/design-options/option-a-editorial.html" loading="lazy" title="Hallmark editorial preview"></iframe><a class="hit" href="/design-options/option-a-editorial.html" target="_blank" rel="noopener" aria-label="Open editorial"></a></div>
+      <div class="meta"><span class="who">Hallmark &middot; A</span><h2>Editorial</h2><p>Masthead, serif, drop-cap, numbered service list, letter-close. Founder-led magazine credibility. (Pre voice-of-customer copy.)</p><a class="go" href="/design-options/option-a-editorial.html" target="_blank" rel="noopener">Open full &rarr;</a></div>
+    </div>
+    <div class="card">
+      <div class="thumb"><iframe src="/design-options/option-b-minimal.html" loading="lazy" title="Hallmark minimal preview"></iframe><a class="hit" href="/design-options/option-b-minimal.html" target="_blank" rel="noopener" aria-label="Open minimal"></a></div>
+      <div class="meta"><span class="who">Hallmark &middot; B</span><h2>Modern-minimal</h2><p>Asymmetric split hero with the assessment as the visual, colophon footer. (Pre voice-of-customer copy.)</p><a class="go" href="/design-options/option-b-minimal.html" target="_blank" rel="noopener">Open full &rarr;</a></div>
+    </div>
+    <div class="card">
+      <div class="thumb"><iframe src="/design-options/option-c-manifesto.html" loading="lazy" title="Hallmark manifesto preview"></iframe><a class="hit" href="/design-options/option-c-manifesto.html" target="_blank" rel="noopener" aria-label="Open manifesto"></a></div>
+      <div class="meta"><span class="who">Hallmark &middot; C</span><h2>Manifesto</h2><p>Full navy, huge "evolution not revolution" hero, stance lines. Bold POV. (Pre voice-of-customer copy.)</p><a class="go" href="/design-options/option-c-manifesto.html" target="_blank" rel="noopener">Open full &rarr;</a></div>
+    </div>
+
+  </div>
+
+  <footer>Served locally at localhost:8799 &middot; thumbnails are live previews &middot; the current site is the deploy-ready one; the rest are explorations to choose from.</footer>
+</div>
+</body>
+</html>
