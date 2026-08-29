@@ -57,3 +57,5 @@ python3 -m http.server 8799   # then open http://localhost:8799/
 
 Copy edits are plain HTML. The bot can edit via the same commit-and-review flow
 as the vault (human-approved, never auto-published).
+
+<!-- slack-edit smoke test 2026-08-29T19:01:44Z -->
