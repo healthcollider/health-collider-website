@@ -59,13 +59,13 @@
 
     <section class="service-block" id="build">
       <h2>Build your report</h2>
-      <p class="lede">Every section stands alone - &pound;395 each, 2 pages, back within 5 business days. Buy Clinical opinion, Incentives and Buyer lens together and we add the overall Verdict score at no extra charge.</p>
+      <p class="lede">Every section stands alone - the first is &pound;395, and each extra section you add is 10% cheaper than the last. 2 pages per section, back within 5 business days. Buy Clinical opinion, Incentives and Buyer lens together and we add the overall Verdict score at no extra charge.</p>
 
       <!-- Product B, modular pricing per the 28 Sep team strategy call: each section
-           is its own line item at £395, no fixed bundle price yet - Aaron to confirm
-           a bundle discount later. Verdict needs all 3 scored sections (buyer,
-           incentives, clinical) to compute, so it's gated on those three, not sold
-           separately. -->
+           is its own line item, first at £395, each additional one 10% cheaper than
+           the one before it (Aaron, 9 Oct 2026). Verdict needs all 3 scored sections
+           (buyer, incentives, clinical) to compute, so it's gated on those three,
+           not sold separately. -->
       <div class="cards" id="section-picker">
         <article class="card">
           <label>
@@ -74,7 +74,7 @@
             <h3>Value proposition critique</h3>
             <p>A straight critique of your value proposition - what's working, what isn't.</p>
           </label>
-          <p class="card-price"><strong>&pound;395</strong></p>
+          <p class="card-price"><strong>From &pound;395</strong></p>
         </article>
         <article class="card">
           <label>
@@ -83,7 +83,7 @@
             <h3>Clinical opinion</h3>
             <p>Does it solve the clinical problem? Our clinical opinion, not a literature search.</p>
           </label>
-          <p class="card-price"><strong>&pound;395</strong></p>
+          <p class="card-price"><strong>From &pound;395</strong></p>
         </article>
         <article class="card">
           <label>
@@ -92,7 +92,7 @@
             <h3>Incentives</h3>
             <p>Whether your incentives are strong enough to move a buyer.</p>
           </label>
-          <p class="card-price"><strong>&pound;395</strong></p>
+          <p class="card-price"><strong>From &pound;395</strong></p>
         </article>
         <article class="card">
           <label>
@@ -101,7 +101,7 @@
             <h3>Buyer lens</h3>
             <p>Who your NHS buyer actually is, and whether your materials show it.</p>
           </label>
-          <p class="card-price"><strong>&pound;395</strong></p>
+          <p class="card-price"><strong>From &pound;395</strong></p>
         </article>
         <article class="card">
           <label>
@@ -110,7 +110,7 @@
             <h3>Red flags</h3>
             <p>The red flags a buyer would spot first, with page references where you've sent a deck.</p>
           </label>
-          <p class="card-price"><strong>&pound;395</strong></p>
+          <p class="card-price"><strong>From &pound;395</strong></p>
         </article>
         <article class="card">
           <label>
@@ -119,7 +119,7 @@
             <h3>Route to market</h3>
             <p>Early, directional pointers on route to market - not a full plan.</p>
           </label>
-          <p class="card-price"><strong>&pound;395</strong></p>
+          <p class="card-price"><strong>From &pound;395</strong></p>
         </article>
       </div>
 
@@ -240,13 +240,20 @@
   var verdictEl = document.getElementById('verdict-note');
   var SCORED = ['clinical', 'incentives', 'buyer'];
   var PRICE = 395;
+  var EXTRA_LAYER_DISCOUNT = 0.9; // each extra section is 10% cheaper than the one before it
 
   function update() {
     var checked = boxes.filter(function (b) { return b.checked; });
-    var total = checked.length * PRICE;
+    var total = 0;
+    var layerPrice = PRICE;
+    for (var i = 0; i < checked.length; i++) {
+      total += layerPrice;
+      layerPrice *= EXTRA_LAYER_DISCOUNT;
+    }
+    total = Math.round(total);
     totalEl.textContent = '£' + total;
     noteEl.textContent = checked.length
-      ? checked.length + (checked.length === 1 ? ' section selected' : ' sections selected')
+      ? checked.length + (checked.length === 1 ? ' section selected' : ' sections selected, discount applied')
       : 'Select at least one section';
     var scoredChecked = checked.filter(function (b) { return SCORED.indexOf(b.value) !== -1; }).length;
     verdictEl.style.display = scoredChecked === 3 ? 'block' : 'none';
